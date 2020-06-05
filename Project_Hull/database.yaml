@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: database-deployment
+    labels:
+        app: my-database-deployment
+spec:
+    replicas: 1 # One db instance, higher range later
+    selector:
+        matchlabels:
+            app: mysql-database
+    template:
+        metadata:
+            labels:
+                app: mysql-database
+        spec:
+            initContainers:
+                - name: mysql-init-data-downloader
+                  image: curlimages/curl
+                  args:
+                    - "-o"
+                    - "/tmp/data/data.sql" # save data to /tmp/data/data.sql
+                    - "https://..." # set path to download data from
+                  volumeMounts:
+                    - name: data-volume
+                    - mountPath: /tmp/data
+            containers:
+                - name: mysql-database
+                  image: mysql
+                env:
+                    - name: ROOT_PASSWORD
+                      valueFrom:
+                        secretKeyRef:
+                            name: database-access-secret
+                            key: password
+                    - name: DATABASE_NAME
+                      value: project-database # rename database
+                volumeMounts:
+                    name: data-volume
+                    mountPath: /docker-entrypoint-database.d/ # unsure! recheck!
+                ports:
+                    containerPort: 3306
+                    containerPort: 33060
+                livenessProbe:
+                    tcpSocket:
+                        port: 33060
+                    initialDelaySeconds: 300 # avoid restarts while building database
+                    periodSeconds: 10 # check every 10 seconds if live
+                readinessProbe:
+                    tcpSocket:
+                        port: 33060
+                    initialDelaySeconds: 5
+                    periodSeconds: 10
+                ressources:
+                    requests:
+                        cpu: 1
+                        memory: 200M
+                    limits:
+                        cpu: 2
+                        memory: 400M
+            volumes:
+                - name: data-volume
+                  emptyDir: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+    name: database-service
+spec:
+    selector:
+        app: mysql-database
+    ports:
+        - name: mysql-port
+          protocol: TCP
+          port: 3306
+          targetPort: 3306
+        - name: mysq-xport
+          protocol: TCP
+          port: 33060
+          targetPort: 33060
+
+---
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+    name: database-deployment
+spec:
+    scaleTargetRef:
+        apiVersion: apps/v1
+        kind: Deployment
+        name: database-deployment
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 50
