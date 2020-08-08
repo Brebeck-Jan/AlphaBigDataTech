@@ -1,0 +1,4 @@
+https://www.spiegel.de/schlagzeilen/index.rss
+http://newsfeed.zeit.de/all
+https://www.faz.net/rss/aktuell/wirtschaft/
+https://www.faz.net/rss/aktuell/politik/
