@@ -1,45 +1,66 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
-  name: mongodb-standalone
+  name: mongo-deployment
+  labels:
+    app: mongo-deployment
 spec:
-  serviceName: database
+  # A single mysql instance
   replicas: 1
   selector:
     matchLabels:
-      app: database
+      app: mongo
   template:
     metadata:
       labels:
-        app: database
-        selector: mongodb-standalone
+        app: mongo
     spec:
+      # Use the init container to download data to the location where the mysql container expects it
+      initContainers:
+        - name: init-container-data-downloader
+          image: curlimages/curl
+          args:
+            - "-o"
+            - "/tmp/data/init.sql" # we are saving downloaded file as init.sql in /tmp/data directory
+            - "https://farberg.de/talks/big-data/code/02-Microservices-docker-compose/mysql-data.sql"
+          volumeMounts:
+            - name: data-volume
+              mountPath: /tmp/data
+      # The actual mysql database
       containers:
-      - name: mongodb-standalone
-        image: mongo:4.0.8
-        env:
-          - name: MONGO_INITDB_ROOT_USERNAME
-            value: admin
-          - name: MONGO_INITDB_ROOT_PASSWORD
-            value: password
-      nodeSelector:
-        kubernetes.io/hostname: mongodb-node
-      volumeMounts:
+        - name: mongo
+          image: mongo:4.0.8
+          # Set required environment variables to initialize the container
+          env:
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: "mysecretpw"
+            - name: MYSQL_DATABASE
+              value: "sportsdb"
+          # Mount the volume that has been populated by the init container
+          volumeMounts:
             - name: data-volume
               mountPath: /docker-entrypoint-initdb.d/
-      ports:
-        - containerPort: 3306
-        - containerPort: 33060
-      livenessProbe:
-        tcpSocket:
-          port: 33060
-        initialDelaySeconds: 300 
-        periodSeconds: 10
-      readinessProbe:
-        tcpSocket:
-          port: 33060
-        initialDelaySeconds: 5
-        periodSeconds: 10
+          ports:
+            - containerPort: 3306
+            - containerPort: 33060
+          livenessProbe:
+            tcpSocket:
+              port: 33060
+            initialDelaySeconds: 300 # to avoid restarts while initializing the database
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 33060
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      #          resources:
+      #            requests:
+      #              cpu: 1
+      #              memory: "200M"
+      #            limits:
+      #              cpu: 1
+      #              memory: "200M"
+      # Define an empty volume to be shared by the init and mysql container
       volumes:
         - name: data-volume
           emptyDir: {}

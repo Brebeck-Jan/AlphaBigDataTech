@@ -19,13 +19,13 @@ spec:
           image: memcached:alpine
           ports:
             - containerPort: 11211
-          resources:
-           requests:
-             cpu: 1
-             memory: "100M"
-           limits:
-             cpu: 2
-             memory: "200M"
+          # resources:
+          #  requests:
+          #    cpu: 1
+          #    memory: "100M"
+          #  limits:
+          #    cpu: 2
+          #    memory: "200M"
 
 ---
 kind: Service

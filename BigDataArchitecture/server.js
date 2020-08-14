@@ -11,9 +11,9 @@ let memcached = null
 let memcachedServers = []
 
 const dbConfig = {
-	user: 'root',
-	password: 'mysecretpw',
-	host: 'my-app-mysql-service',
+	user: 'admin',
+	password: 'password',
+	host: 'database-service',
 	port: 33060,
 	schema: 'sportsdb'
 };
