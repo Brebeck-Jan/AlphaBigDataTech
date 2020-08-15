@@ -47,9 +47,9 @@ def run_all():
         for newspage in f.readlines():
             
             # run crawler
-            crawl_page(newspage)
+            crawl_page(newspage.rstrip())
 
-crawl_page("https://www.spiegel.de/schlagzeilen/index.rss")
+# crawl_page("https://www.spiegel.de/schlagzeilen/index.rss")
 # crawl_page("http://newsfeed.zeit.de/all")
 
-# run_all()
+run_all()
