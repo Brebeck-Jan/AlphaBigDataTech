@@ -10,13 +10,15 @@ const MemcachePlus = require('memcache-plus');
 let memcached = null
 let memcachedServers = []
 
-const dbConfig = {
+const dbConfig = "mongodb://admin:password@database-service:33060/?retryWirtes=true&w=majority"
+
+/*const dbConfig = {
 	user: 'admin',
 	password: 'password',
 	host: 'database-service',
 	port: 33060,
 	schema: 'sportsdb'
-};
+};*/
 
 async function getMemcachedServersFromDns() {
 	let queryResult = await dns.lookup('memcached-service', { all: true })
