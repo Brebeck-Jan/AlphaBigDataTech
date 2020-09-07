@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
+import time
 
 def crawl_page(url):
     """ Crawl news of given page and save to Datalake.
@@ -65,4 +66,7 @@ def run_all():
             # run crawler
             crawl_page(newspage.rstrip())
 
-run_all()
+while(True):
+    print("new crawl")
+    run_all()
+    time.sleep(1800)
