@@ -1,3 +1,1 @@
-https://www.spiegel.de/schlagzeilen/index.rss
-https://www.faz.net/rss/aktuell/wirtschaft/
 https://www.faz.net/rss/aktuell/politik/
