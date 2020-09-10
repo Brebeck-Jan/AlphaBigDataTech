@@ -1,70 +1,24 @@
-2020-09-10 06:44:26,564 INFO  [main] thrift.ThriftServer: ***** STARTING service 'ThriftServer' *****
-2020-09-10 06:44:26,603 INFO  [main] util.VersionInfo: HBase 2.1.2
-2020-09-10 06:44:26,604 INFO  [main] util.VersionInfo: Source code repository git://kalashnikov/Users/stack/checkouts/hbase.git revision=1dfc418f77801fbfb59a125756891b9100c1fc6d
-2020-09-10 06:44:26,604 INFO  [main] util.VersionInfo: Compiled by stack on Sun Dec 30 21:45:09 PST 2018
-2020-09-10 06:44:26,606 INFO  [main] util.VersionInfo: From source with checksum 5701bcce2fc4832a4b2990adc735b516
-2020-09-10 06:44:32,559 INFO  [main] thrift.ThriftServerRunner: Using default thrift server type
-2020-09-10 06:44:32,565 INFO  [main] thrift.ThriftServerRunner: Using thrift server type threadpool
-2020-09-10 06:44:33,338 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-2020-09-10 06:44:40,496 INFO  [main] metrics.MetricRegistries: Loaded MetricRegistries class org.apache.hadoop.hbase.metrics.impl.MetricRegistriesImpl
-2020-09-10 06:44:42,241 INFO  [main] util.log: Logging initialized @19708ms
-2020-09-10 06:44:44,106 INFO  [main] http.HttpRequestLog: Http request log for http.requests.thrift is not defined
-2020-09-10 06:44:44,215 INFO  [main] http.HttpServer: Added global filter 'safety' (class=org.apache.hadoop.hbase.http.HttpServer$QuotingInputFilter)
-2020-09-10 06:44:44,222 INFO  [main] http.HttpServer: Added global filter 'clickjackingprevention' (class=org.apache.hadoop.hbase.http.ClickjackingPreventionFilter)
-2020-09-10 06:44:44,351 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context thrift
-2020-09-10 06:44:44,352 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context static
-2020-09-10 06:44:44,353 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context logs
-2020-09-10 06:44:44,933 INFO  [main] http.HttpServer: Jetty bound to port 9095
-2020-09-10 06:44:45,004 INFO  [main] server.Server: jetty-9.3.19.v20170502
-2020-09-10 06:44:45,582 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@be35cd9{/logs,file:///opt/hbase/logs/,AVAILABLE}
-2020-09-10 06:44:45,585 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@44821a96{/static,file:///opt/hbase/hbase-webapps/static/,AVAILABLE}
-2020-09-10 06:44:48,623 INFO  [main] handler.ContextHandler: Started o.e.j.w.WebAppContext@14028087{/,file:///opt/hbase/hbase-webapps/thrift/,AVAILABLE}{file:/opt/hbase/hbase-webapps/thrift}
-2020-09-10 06:44:48,932 INFO  [main] server.AbstractConnector: Started ServerConnector@4a817ca9{HTTP/1.1,[http/1.1]}{0.0.0.0:9095}
-2020-09-10 06:44:48,938 INFO  [main] server.Server: Started @26521ms
-2020-09-10 06:44:49,829 INFO  [main] thrift.ThriftServerRunner: starting TBoundedThreadPoolServer on /0.0.0.0:9090 with readTimeout 60000ms; min worker threads=16, max worker threads=1000, max queued requests=1000
-2020-09-10 06:45:22,267 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:zookeeper.version=3.4.10-39d3a4f269333c922ed3db283be479f9deacaa0f, built on 03/23/2017 10:13 GMT
-2020-09-10 06:45:22,277 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:host.name=hbase-docker
-2020-09-10 06:45:22,278 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:java.version=1.8.0_191
-2020-09-10 06:45:22,282 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:java.vendor=Oracle Corporation
-2020-09-10 06:45:22,283 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
-2020-09-10 06:45:22,285 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: 30121.jar:/opt/hbase/bin/../lib/osgi-resource-locator-1.0.1.jar:/opt/hbase/bin/../lib/paranamer-2.3.jar:/opt/hbase/bin/../lib/protobuf-java-2.5.0.jar:/opt/hbase/bin/../lib/snappy-java-1.0.5.jar:/opt/hbase/bin/../lib/spymemcached-2.12.2.jar:/opt/hbase/bin/../lib/validation-api-1.1.0.Final.jar:/opt/hbase/bin/../lib/xmlenc-0.52.jar:/opt/hbase/bin/../lib/xz-1.0.jar:/opt/hbase/bin/../lib/zookeeper-3.4.10.jar:/opt/hbase/bin/../lib/client-facing-thirdparty/audience-annotations-0.5.0.jar:/opt/hbase/bin/../lib/client-facing-thirdparty/commons-logging-1.2.jar:/opt/hbase/bin/../lib/client-facing-thirdparty/findbugs-annotations-1.3.9-1.jar:/opt/hbase/bin/../lib/client-facing-thirdparty/htrace-core4-4.2.0-incubating.jar:/opt/hbase/bin/../lib/client-facing-thirdparty/log4j-1.2.17.jar:/opt/hbase/bin/../lib/client-facing-thirdparty/slf4j-api-1.7.25.jar:/opt/hbase/bin/../lib/client-facing-thirdparty/htrace-core-3.1.0-incubating.jar:/opt/hbase/bin/../lib/client-facing-thirdparty/slf4j-log4j12-1.7.25.jar
-2020-09-10 06:45:22,286 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
-2020-09-10 06:45:22,287 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/tmp
-2020-09-10 06:45:22,288 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
-2020-09-10 06:45:22,289 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:os.name=Linux
-2020-09-10 06:45:22,290 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:os.arch=amd64
-2020-09-10 06:45:22,291 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:os.version=4.19.76-linuxkit
-2020-09-10 06:45:22,293 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:user.name=root
-2020-09-10 06:45:22,295 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:user.home=/root
-2020-09-10 06:45:22,295 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Client environment:user.dir=/
-2020-09-10 06:45:22,308 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Initiating client connection, connectString=hbase-docker:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$28/914301933@1a96081f
-2020-09-10 06:45:22,420 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Opening socket connection to server hbase-docker/172.17.0.2:2181. Will not attempt to authenticate using SASL (unknown error)
-2020-09-10 06:45:22,476 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Socket connection established to hbase-docker/172.17.0.2:2181, initiating session
-2020-09-10 06:45:22,508 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Session establishment complete on server hbase-docker/172.17.0.2:2181, sessionid = 0x17476c23e460005, negotiated timeout = 40000
-2020-09-10 06:45:39,941 ERROR [thrift-worker-0] client.AsyncRequestFutureImpl: Cannot get replica 0 location for {"totalColumns":5,"row":"testkey","families":{"data":[{"qualifier":"site","vlen":4,"tag":[],"timestamp":9223372036854775807},{"qualifier":"title","vlen":4,"tag":[],"timestamp":9223372036854775807},{"qualifier":"time","vlen":4,"tag":[],"timestamp":9223372036854775807},{"qualifier":"link","vlen":4,"tag":[],"timestamp":9223372036854775807}]},"ts":9223372036854775807}
-2020-09-10 06:45:39,979 WARN  [thrift-worker-0] thrift.ThriftServerRunner$HBaseHandler: Failed 1 action: crawled_articles: 1 time, servers with issues: null
-org.apache.hadoop.hbase.client.RetriesExhaustedWithDetailsException: Failed 1 action: crawled_articles: 1 time, servers with issues: null
-	at org.apache.hadoop.hbase.client.BatchErrors.makeException(BatchErrors.java:54)
-	at org.apache.hadoop.hbase.client.AsyncRequestFutureImpl.getErrors(AsyncRequestFutureImpl.java:1227)
-	at org.apache.hadoop.hbase.client.HTable.batch(HTable.java:455)
-	at org.apache.hadoop.hbase.client.HTable.put(HTable.java:553)
-	at org.apache.hadoop.hbase.thrift.ThriftServerRunner$HBaseHandler.mutateRowsTs(ThriftServerRunner.java:1471)
-	at org.apache.hadoop.hbase.thrift.ThriftServerRunner$HBaseHandler.mutateRows(ThriftServerRunner.java:1407)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.hadoop.hbase.thrift.HbaseHandlerMetricsProxy.invoke(HbaseHandlerMetricsProxy.java:66)
-	at com.sun.proxy.$Proxy10.mutateRows(Unknown Source)
-	at org.apache.hadoop.hbase.thrift.generated.Hbase$Processor$mutateRows.getResult(Hbase.java:4308)
-	at org.apache.hadoop.hbase.thrift.generated.Hbase$Processor$mutateRows.getResult(Hbase.java:4292)
-	at org.apache.thrift.ProcessFunction.process(ProcessFunction.java:39)
-	at org.apache.thrift.TBaseProcessor.process(TBaseProcessor.java:39)
-	at org.apache.hadoop.hbase.thrift.TBoundedThreadPoolServer$ClientConnnection.run(TBoundedThreadPoolServer.java:293)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-2020-09-10 06:45:49,120 INFO  [thrift-worker-0] client.HBaseAdmin: Operation: CREATE, Table Name: default:crawled_articles, procId: 7 completed
-2020-09-10 06:46:36,226 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2] zookeeper.ZooKeeper: Session: 0x17476c23e460005 closed
-2020-09-10 06:46:36,226 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x0d06b1b2-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x17476c23e460005
-2020-09-10 06:58:30,349 INFO  [ConnectionCache.Chore.1] client.ConnectionImplementation: Closing master protocol: MasterService
+2020-09-10 08:59:00,012 INFO  [main] thrift.ThriftServer: ***** STARTING service 'ThriftServer' *****
+2020-09-10 08:59:00,020 INFO  [main] util.VersionInfo: HBase 2.1.2
+2020-09-10 08:59:00,021 INFO  [main] util.VersionInfo: Source code repository git://kalashnikov/Users/stack/checkouts/hbase.git revision=1dfc418f77801fbfb59a125756891b9100c1fc6d
+2020-09-10 08:59:00,022 INFO  [main] util.VersionInfo: Compiled by stack on Sun Dec 30 21:45:09 PST 2018
+2020-09-10 08:59:00,023 INFO  [main] util.VersionInfo: From source with checksum 5701bcce2fc4832a4b2990adc735b516
+2020-09-10 08:59:02,912 INFO  [main] thrift.ThriftServerRunner: Using default thrift server type
+2020-09-10 08:59:02,918 INFO  [main] thrift.ThriftServerRunner: Using thrift server type threadpool
+2020-09-10 08:59:03,355 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2020-09-10 08:59:09,095 INFO  [main] metrics.MetricRegistries: Loaded MetricRegistries class org.apache.hadoop.hbase.metrics.impl.MetricRegistriesImpl
+2020-09-10 08:59:09,983 INFO  [main] util.log: Logging initialized @12892ms
+2020-09-10 08:59:11,533 INFO  [main] http.HttpRequestLog: Http request log for http.requests.thrift is not defined
+2020-09-10 08:59:11,618 INFO  [main] http.HttpServer: Added global filter 'safety' (class=org.apache.hadoop.hbase.http.HttpServer$QuotingInputFilter)
+2020-09-10 08:59:11,630 INFO  [main] http.HttpServer: Added global filter 'clickjackingprevention' (class=org.apache.hadoop.hbase.http.ClickjackingPreventionFilter)
+2020-09-10 08:59:11,658 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context thrift
+2020-09-10 08:59:11,666 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context static
+2020-09-10 08:59:11,667 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context logs
+2020-09-10 08:59:12,058 INFO  [main] http.HttpServer: Jetty bound to port 9095
+2020-09-10 08:59:12,062 INFO  [main] server.Server: jetty-9.3.19.v20170502
+2020-09-10 08:59:12,394 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@be35cd9{/logs,file:///opt/hbase/logs/,AVAILABLE}
+2020-09-10 08:59:12,397 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@44821a96{/static,file:///opt/hbase/hbase-webapps/static/,AVAILABLE}
+2020-09-10 08:59:13,267 INFO  [main] handler.ContextHandler: Started o.e.j.w.WebAppContext@14028087{/,file:///opt/hbase/hbase-webapps/thrift/,AVAILABLE}{file:/opt/hbase/hbase-webapps/thrift}
+2020-09-10 08:59:13,327 INFO  [main] server.AbstractConnector: Started ServerConnector@7c137fd5{HTTP/1.1,[http/1.1]}{0.0.0.0:9095}
+2020-09-10 08:59:13,329 INFO  [main] server.Server: Started @16242ms
+2020-09-10 08:59:13,719 INFO  [main] thrift.ThriftServerRunner: starting TBoundedThreadPoolServer on /0.0.0.0:9090 with readTimeout 60000ms; min worker threads=16, max worker threads=1000, max queued requests=1000
