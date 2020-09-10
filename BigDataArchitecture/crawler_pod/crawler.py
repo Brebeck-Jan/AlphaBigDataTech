@@ -8,12 +8,28 @@ import time
 import csv
 import happybase
 
+# local setup:
+# connection = happybase.Connection('localhost', 9090)
+# dockersetup
+connectionstring = "hello"
+print(connectionstring)
+connection = happybase.Connection(connectionstring, 9090)
+connection.tables()
+try:
+    table = connection.table('crawled_articles')
+    table.put("testkey",{"data:site":"test","data:title":"test","data:time":"test","data:link":"test","data:text":"test"})
+except:
+    connection.create_table('crawled_articles', { 'data': dict() } )
+    print("table created")
+    
+connection.close()
+
 def connect_to_hbase():
     batch_size=1000 
     # local setup:
     # connection = happybase.Connection('localhost', 9090)
     # dockersetup
-    connection = happybase.Connection("172.16.238.10", 9090)
+    connection = happybase.Connection(connectionstring, 9090)
     connection.tables()
     table = connection.table('crawled_articles')
     batch = table.batch(batch_size = batch_size)
@@ -113,7 +129,23 @@ connection, table, batch = connect_to_hbase()
 while(infinityloop):
     timestamp = datetime.now()
     run_all()
+    print("finished")
     batch.send()
     connection.close()
     infinityloop = False
     time.sleep(18)
+
+# local setup:
+connection = happybase.Connection(connectionstring, 9090)
+# dockersetup
+# connection = happybase.Connection('hbase-compose', 9090)
+connection.tables()
+table = connection.table('crawled_articles')
+
+counter = 0
+for k, data in table.scan():
+    counter+=1
+#     print(k, data)
+
+connection.close()
+print(f"{counter}. entries")

@@ -12,11 +12,6 @@ services:
         ipv4_address: 172.16.238.10
     ports:
       - "9090:9090"
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost:9090"]
-        interval: 5s
-        timeout: 5s
-        retries: 5
   
   python:
     container_name: crawler

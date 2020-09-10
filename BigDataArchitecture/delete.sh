@@ -12,4 +12,7 @@ kubectl delete statefulset/mongo
 kubectl delete horizontalpodautoscaler.autoscaling/app-deployment
 kubectl delete horizontalpodautoscaler.autoscaling/memcache-deployment
 
+kubectl delete -f crawler.yaml
+kubectl delete -f datalake.yaml
+
 minikube delete

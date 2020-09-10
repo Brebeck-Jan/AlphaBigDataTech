@@ -2,7 +2,7 @@ import happybase
 # local setup:
 connection = happybase.Connection('localhost', 9090)
 # dockersetup
-# connection = happybase.Connection('hbase-compose', 9090)
+# connection = happybase.Connection('hello', 9090)
 connection.tables()
 table = connection.table('crawled_articles')
 

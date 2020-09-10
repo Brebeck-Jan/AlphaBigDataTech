@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hbase
+spec:
+  selector:
+    matchLabels:
+      app: hbase
+      tier: backend
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: hbase
+        tier: backend
+    spec:
+      containers:
+      - name: hbase
+        image: dajobe/hbase
+        ports:
+          - name: http
+            containerPort: 9090
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  selector:
+    app: hbase
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 9090
+    targetPort: http
