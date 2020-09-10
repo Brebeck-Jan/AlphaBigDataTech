@@ -2,4 +2,5 @@ findspark
 pyspark
 happybase
 nltk
-pandas 
+pandas
+pymongo
