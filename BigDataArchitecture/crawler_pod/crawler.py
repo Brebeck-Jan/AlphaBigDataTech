@@ -12,9 +12,33 @@ import happybase
 def connect_to_hbase():
     connection = happybase.Connection('localhost', 9090)
     connection.tables()
-    table = connection.table('crawled_articles')
+    table = connection.table('crawled_articles2')
     return connection, table
 
+def umlauts(word):
+    """
+    Replace umlauts for a given text
+    
+    :param word: text as string
+    :return: manipulated text as str
+    """
+    
+    tempVar = word  
+    
+    tempVar = tempVar.replace('ä', 'ae')
+    tempVar = tempVar.replace('ö', 'oe')
+    tempVar = tempVar.replace('ü', 'ue')
+    tempVar = tempVar.replace('Ä', 'Ae')
+    tempVar = tempVar.replace('Ö', 'Oe')
+    tempVar = tempVar.replace('Ü', 'Ue')
+    tempVar = tempVar.replace('ß', 'ss')
+    
+    return tempVar
+
+def preprocessing(title):
+    text = umlauts(title)
+    text = ' '.join((text.strip('\n').split()))
+    return text
 
 def crawl_page(url):
     """ Crawl news of given page and save to Datalake.
@@ -39,9 +63,9 @@ def crawl_page(url):
     
     for item in items:
         article = {}
-        article["site"]=url.split(".")[1]
-        article["time"]=datetime.now().strftime("%H:%M:%S")
-        article["title"] = item.title.get_text()
+        article["site"] = url.split(".")[1]
+        article["time"] = datetime.now().strftime("%H:%M:%S")
+        article["title"] = preprocessing(item.title.get_text())
         article["link"] = item.guid.get_text()
 
         article["text"] = ""
@@ -56,6 +80,7 @@ def crawl_page(url):
             article["tags"] = [url.split("/")[-2]]
         for paragraph in article_side.select(selector):
             article["text"] =  article["text"] + paragraph.get_text()
+        article["text"]=preprocessing(article["text"])
         articles.append(article)
         
         
@@ -81,10 +106,7 @@ def save_to_hadoop(articles,url=""):
         id = 0
         for article in articles:
             id+=1
-            table.put(str(timestamp)+" "+str(id),{"data:site":article["site"],"data:title":article["title"],"data:time":article["time"],"data:link":article["link"],"data:text":article["text"]})
-
-        article["text"] = ""
-            # article)
+            table.put(str(timestamp)+" "+article["site"]+" "+article["title"],{"data:site":article["site"],"data:title":article["title"],"data:time":article["time"],"data:link":article["link"],"data:text":article["text"]})
         # batch.send()
     finally:
         connection.close()
