@@ -10,9 +10,12 @@ import happybase
 
 def connect_to_hbase():
     batch_size=1000 
-    connection = happybase.Connection('localhost', 9090)
+    # local setup:
+    # connection = happybase.Connection('localhost', 9090)
+    # dockersetup
+    connection = happybase.Connection("172.16.238.10", 9090)
     connection.tables()
-    table = connection.table('crawled_articles2')
+    table = connection.table('crawled_articles')
     batch = table.batch(batch_size = batch_size)
     return connection, table, batch
 
@@ -99,11 +102,6 @@ def run_all():
     return(newspage)
 
 def save_to_hadoop(articles,url=""):
-    # file version
-    # with open("./output/"+articles[0]["site"]+url.split(".")[2].split("/")[-2]+".txt","w",encoding="utf-8") as f:
-    #     for article in articles:
-    #         f.write(str(article))
-
     for article in articles:
         try:
             batch.put(str(timestamp)+" "+article["site"]+" "+article["title"],{"data:site":article["site"],"data:title":article["title"],"data:time":article["time"],"data:link":article["link"],"data:text":article["text"]})

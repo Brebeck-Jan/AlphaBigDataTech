@@ -4,7 +4,11 @@ RUN mkdir /app
 WORKDIR /app
 ADD . /app/
 RUN pip install -r requirements.txt
+RUN chmod a+x run.sh
 
-EXPOSE 5000
-CMD ["python", "/app/init_table.py"]
-CMD ["python", "/app/crawler.py"]
+## Add the wait script to the image
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
+RUN chmod +x /wait
+
+## Launch the wait tool and then your application
+CMD /wait && "/app/run.sh"

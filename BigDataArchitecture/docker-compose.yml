@@ -1,0 +1,39 @@
+version: '3.3'
+
+volumes:
+  pgadmin:
+
+services:
+  hbase:
+    container_name: hbase-compose
+    image: dajobe/hbase
+    networks:
+      database_project_network:
+        ipv4_address: 172.16.238.10
+    ports:
+      - "9090:9090"
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:9090"]
+        interval: 5s
+        timeout: 5s
+        retries: 5
+  
+  python:
+    container_name: crawler
+    build: ./crawler_pod/
+    networks:
+      database_project_network:
+        ipv4_address: 172.16.238.12
+    depends_on:
+      - hbase
+    environment:
+      - WAIT_HOSTS=172.16.238.10:9090
+      - WAIT_HOSTS_TIMEOUT=300
+      - WAIT_SLEEP_INTERVAL=10
+      - WAIT_HOST_CONNECT_TIMEOUT=10
+networks:
+    database_project_network:
+      driver: bridge
+      ipam:
+        config:
+          - subnet: 172.16.238.0/24

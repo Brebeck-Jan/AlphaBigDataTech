@@ -1,8 +1,10 @@
 import happybase
-
+# local setup:
 connection = happybase.Connection('localhost', 9090)
+# dockersetup
+# connection = happybase.Connection('hbase-compose', 9090)
 connection.tables()
-table = connection.table('crawled_articles2')
+table = connection.table('crawled_articles')
 
 counter = 0
 for k, data in table.scan():

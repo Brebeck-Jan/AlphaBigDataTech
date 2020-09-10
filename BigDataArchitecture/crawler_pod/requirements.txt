@@ -3,6 +3,5 @@ beautifulsoup4
 requests
 datetime
 regex
-csv
 happybase
 
