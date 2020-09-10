@@ -1,6 +1,5 @@
 
 # Crawl all News from the rss feeds of diferent newspapers, saved in newspages.txt
-print("testrun")
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -10,10 +9,12 @@ import csv
 import happybase
 
 def connect_to_hbase():
+    batch_size=1000 
     connection = happybase.Connection('localhost', 9090)
     connection.tables()
     table = connection.table('crawled_articles2')
-    return connection, table
+    batch = table.batch(batch_size = batch_size)
+    return connection, table, batch
 
 def umlauts(word):
     """
@@ -102,20 +103,19 @@ def save_to_hadoop(articles,url=""):
     # with open("./output/"+articles[0]["site"]+url.split(".")[2].split("/")[-2]+".txt","w",encoding="utf-8") as f:
     #     for article in articles:
     #         f.write(str(article))
-    try:
-        id = 0
-        for article in articles:
-            id+=1
-            table.put(str(timestamp)+" "+article["site"]+" "+article["title"],{"data:site":article["site"],"data:title":article["title"],"data:time":article["time"],"data:link":article["link"],"data:text":article["text"]})
-        # batch.send()
-    finally:
-        connection.close()
 
+    for article in articles:
+        try:
+            batch.put(str(timestamp)+" "+article["site"]+" "+article["title"],{"data:site":article["site"],"data:title":article["title"],"data:time":article["time"],"data:link":article["link"],"data:text":article["text"]})
+        except Exception as e:
+            print(f"{article['title']} from {article['site']} was skipped")
+            print(e)
 infinityloop = True
-connection, table = connect_to_hbase()
+connection, table, batch = connect_to_hbase()
 while(infinityloop):
     timestamp = datetime.now()
-    print("new crawl")
     run_all()
+    batch.send()
+    connection.close()
     infinityloop = False
     time.sleep(18)
