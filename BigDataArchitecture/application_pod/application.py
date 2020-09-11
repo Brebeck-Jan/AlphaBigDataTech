@@ -12,28 +12,19 @@
 import findspark
 findspark.init()
 from pyspark.sql import SparkSession
-from pyspark.conf import SparkConf
 import happybase
 from nltk.corpus import stopwords
 import pandas as pd
+import pymongo
+import sys
 
 ##########################################################################################
 # init spark        						                                             #
 ##########################################################################################
 
-# if we would use kubernetes then run this instead of initspark
-'''conf=SparkConf()\
-        .setMaster(local[*])\
-        .setappName("WordCount")\
-        .setExecutorEnv("spark.executor.memory","4g")\
-        .setExecutorEnv("spark.driver.memory","4g")
-  spark=SparkSession.builder\
-        .config(conf=conf)\
-        .getOrCreate()'''
-
 spark=SparkSession.builder\
 	.master("local[*]")\
-	.appName("BigDataApplication")\
+	.appName("application")\
 	.getOrCreate()
 sc=spark.sparkContext
 
@@ -74,7 +65,7 @@ def lower_clean_str(x):
 # Application       						                                             #
 ##########################################################################################
 
-def BigDataApplication(news):
+def application(news):
 
 	# create Pipelined RDD
 	df = sc.parallelize(news)
@@ -97,9 +88,9 @@ def BigDataApplication(news):
 	countRBK = countRBK.sortByKey(False)
 
 	# get german stopwords and change their umlauts
-	stopwords =stopwords.words('german')
+	stops =stopwords.words('german')
 	german_stopwords = []
-	for word in stopwords:
+	for word in stops:
 		german_stopwords.append(umlauts(word))
 
 	# delete stopwords
@@ -134,8 +125,19 @@ def attach_database():
 # Run Application with Data					                                             #
 ##########################################################################################
 
-BigDataApplication(attach_database())
+def write_mongo(result):
+	#Create a MongoDB client
+	client = pymongo.MongoClient('mongodb://mongo-0.mongo-service') 
 
-##########################################################################################
-# write to MongoDB      					                                             #
-##########################################################################################
+	#Specify the database to be used
+	db = client.news
+
+	#Specify the collection to be used
+	col = db.newscollection
+
+	#Insert a single document
+	for i in range(len(result)):
+		col.insert_one({'news':result.iloc[i,0]})
+
+	#Close the connection
+	client.close()
