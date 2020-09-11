@@ -54,8 +54,10 @@ Datenbank:
 Mongo Datenbank
 
 ## Web Server
-Webserver: Implementiert in JavaScript 
+Webserver: Implementiert in JavaScript
+
 HorizontalPodAutoScale:
+
 Falls die CPU Auslastung eines Pods über 50 Prozent steigt wird ein weiterer Pod des Servers erstellt (bis zu maximal 10). Gehandelt wird der Zugriff über den Loadbalancer.
 
 Der Webserver stellt die aktuellen Trends, die auf den gecrawlten Webseiten von der Application gefunden werden, dar.
