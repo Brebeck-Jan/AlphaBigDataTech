@@ -20,6 +20,11 @@ __Dozent:__         [Dennis Pfisterer](https://github.com/pfisterer)
 Die Idee die hinter dieser Anwendung basiert auf der Funktionsweise von Google Trends.
 Dabei werden rss-Feeds von einschlägige Nachrichtenportale, wie die Farknfurter allgemien Zeitung und der Spiegel, mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data-Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die häufigkeit dieser kumuliert. Sobald dies geschehen ist, wird ein Fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. MIt einer Query werden diese dann Aufgerufen und Dargestellt. 
 
+## Anwendung starten / stoppen
+- Docker Desktop muss laufen
+- Im Ordner BigDataArchitecture "./start.sh" ausführen
+- Stoppen: "./delete.sh"
+
 
 
 # Architektur Design
@@ -51,7 +56,7 @@ Stopwords werden entfernt und das Resultat, der 5 am häufigsten vorkommenden W�
 
 ## Database Server
 Datenbank:
-Mongo Datenbank
+Mongo Datenbank im eigenen Kubernetes Pod. Verbindungen zum Webserver (lesend) und zur Application (schreibend). Benutzt wird der Standardport für eine MongoDB (27017)
 
 ## Web Server
 Webserver: Implementiert in JavaScript
@@ -61,17 +66,25 @@ HorizontalPodAutoScale:
 Falls die CPU Auslastung eines Pods über 50 Prozent steigt wird ein weiterer Pod des Servers erstellt (bis zu maximal 10). Gehandelt wird der Zugriff über den Loadbalancer.
 
 Der Webserver stellt die aktuellen Trends, die auf den gecrawlten Webseiten von der Application gefunden werden, dar.
+
+
 ## Cache Server
 Cache:
-HorizontalPodAutoScale:
+Der Webserver schreibt bei Zugriff die empfangenen Daten auf einen Cacheserver und falls die Daten nicht älter als 30 Sekunden beim nächsten Zugriff sind werden sie von dort, statt von der Datenbank an den Webserver geliefert.
+HorizontalPodAutoScale
 Falls die CPU Auslastung eines Pods über 50 Prozent steigt wird ein weiterer Pod des Servers erstellt (bis zu maximal 10)
 
 ## Load Balancer
 Loadbalancer:
-Im zum Webserver zugehörigen Service ist ein Loadblancer integriert (Type: Loadbalancer)
+Im zum Webserver zugehörigen Service ist ein Loadblancer integriert (Type: Loadbalancer), der eingehende Anfragen auf verschiedene Webserver verteilt (wenn vorhanden und falls nötig)
 
 externer Zugriff:
-Erfolgt über Ingress
+Erfolgt über Ingress (Gibt einen Pfad von außerhalb des Clusters hin zu Services in dem Cluster)
+Um die IP / Port zu bekommen:
+-	Kubectl get ingress -o wide (Kann eine Weile dauern bis Adresse sichtbar)
+
+
+
 
 
 # Screencast
