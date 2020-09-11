@@ -41,69 +41,30 @@ async function getFromCache(key) {
 	return await memcached.get(key);
 }
 
-//Get data from database
-// function getFromDatabase() {
-// 	let output = []
-// 	// let result1
 
-// 	// let result2
-// 	// result2 = MongoClient.connect(dbConfig, function(err, db) {
-// 	//   if (err) throw err;
-// 	//   var dbo = db.db("news");
-// 	//   result1 = dbo.collection("newscollection").find().toArray(function(err, result) {
-// 	// 	if (err) throw err;
-// 	// 	console.log(result);
-// 	// 	db.close();
-// 	// 	return result
-// 	//   });
-// 	// return result1});
-
-
-// MongoClient.connect(dbConfig, function(err, dbconnection) {
-// 	var db = dbconnection.db("news")
-//     var cursor = db.collection('newscollection').find();
-//     cursor.each(function(err, doc) {
-// 		console.log(doc);
-// 		output.push(doc)
-//     });
-// });
-// return output
-// }
-
-async function getAThing() {
+async function get_data_from_mongo() {
     let db = await MongoClient.connect('mongodb://mongo-connection:27017/news');
         let thing = await db.collection("newscollection").findOne();
         await db.close();
         return thing;
 }
-async function send_response(response, data) {
-	response.send(data)
-}
 
-app.get('/', function (request, response) {
-	console.log("TEstong")
-	response.writeHead(302, { 'Location': 'person/l.mlb.com-p.7491' })
-	response.end();
-})
-
-app.getAsync('/person/:id', async function (request, response) {
+app.getAsync('/', async function (request,response) {
 	let key = 'user_'
 	let cachedata = await getFromCache(key)
 
 	if (cachedata) {
-		console.log(`Cache hit for key=${key}, cachedata = ${cachedata}`)
-		send_response(response, cachedata);
+		console.log('cachedata')
+		response.send(data)
 	} else {
-		console.log(`Cache miss for key=${key}, querying database`)
-		let data = await getAThing()
-		console.log(data)
+		let data = await get_data_from_mongo()
 		if (data) {
 			console.log(`Got data=${data}, storing in cache`)
 			if (memcached)
 				await memcached.set(key, data, 30 /* seconds */);
-			send_response(response, data);
+			response.send(data);
 		} else {
-			send_response(response, "No data found");
+			response.send("No data found");
 		}
 	}
 })

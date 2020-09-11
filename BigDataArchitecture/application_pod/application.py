@@ -137,7 +137,7 @@ def write_mongo(result):
 	#Specify the collectionlection to be used
 	collection = db.newscollection
 
-	dao_object = {"cat":"all","titles":[""]}
+	dao_object = {"cat":"all","titles":[]}
 	#Insert a single document
 	for i in range(len(result)):
 		dao_object["titles"].append(result.iloc[i,0])
