@@ -1,6 +1,6 @@
 findspark
 pyspark
 happybase
-nltk.corpus
+nltk
 pandas
 pymongo

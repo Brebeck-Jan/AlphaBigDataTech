@@ -17,6 +17,7 @@ from nltk.corpus import stopwords
 import pandas as pd
 import pymongo
 import sys
+nltk.download("stopwords")
 
 ##########################################################################################
 # init spark        						                                             #
