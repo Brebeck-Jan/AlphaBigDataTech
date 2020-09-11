@@ -7,6 +7,7 @@ from datetime import datetime
 import time
 import csv
 import happybase
+import time
 
 # local setup:
 # connection = happybase.Connection('localhost', 9090)
@@ -147,3 +148,6 @@ for k, data in table.scan():
 
 connection.close()
 print(f"{counter}. entries")
+
+# time sleep, that the pod gets rebuild after completion
+time.sleep(1000)

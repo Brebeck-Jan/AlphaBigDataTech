@@ -19,6 +19,7 @@ import pandas as pd
 import pymongo
 import sys
 nltk.download("stopwords")
+import time
 
 ##########################################################################################
 # init spark        						                                             #
@@ -36,15 +37,7 @@ sc=spark.sparkContext
 
 # delete umlauts
 def umlauts(word):
-    """
-    Replace umlauts for a given text
-    
-    :param word: text as string
-    :return: manipulated text as str
-    """
-    
     tempVar = word  
-    
     tempVar = tempVar.replace('ä', 'ae')
     tempVar = tempVar.replace('ö', 'oe')
     tempVar = tempVar.replace('ü', 'ue')
@@ -71,33 +64,25 @@ def application(news):
 
 	# create Pipelined RDD
 	df = sc.parallelize(news)
-
 	# remove punktuation and transform to lowercase
 	df = df.map(lower_clean_str) 
-
 	#split sentences into list of words
 	df = df.flatMap(lambda satir: satir.split(" ")) 
-
 	# exclude whitespaces
 	df = df.filter(lambda x:x!='') 
-
 	# count how many times each word occurs
 	count = df.map(lambda word:(word,1))
 	countRBK = count.reduceByKey(lambda x,y:(x+y)).sortByKey()
-
 	# rank words
 	countRBK = countRBK.map(lambda x:(x[1],x[0]))
 	countRBK = countRBK.sortByKey(False)
-
 	# get german stopwords and change their umlauts
 	stops =stopwords.words('german')
 	german_stopwords = []
 	for word in stops:
 		german_stopwords.append(umlauts(word))
-
 	# delete stopwords
 	countRBK = countRBK.filter(lambda x: x[1] not in german_stopwords)
-
 	# write result into pandas dataframe and export
 	export = pd.DataFrame(columns=['trend-word'])
 	for i in range(5):
@@ -113,12 +98,11 @@ def application(news):
 def data_from_datalake():
 	connection = happybase.Connection(host='hello', port=9090, autoconnect=True)
 	table = connection.table('crawled_articles')
-
 	news = []
 	for k, data in table.scan():
 		news.append(data[b'data:title'].decode('utf-8'))
-	
 	connection.close()
+	
 	return news
 
 
@@ -127,23 +111,25 @@ def data_from_datalake():
 ##########################################################################################
 
 def write_mongo(result):
-	#Create a MongoDB client
+	# Create a MongoDB client
 	print(result)
 	# client = pymongo.MongoClient('mongodb://mongo-container:27017')
 	client = pymongo.MongoClient('mongodb://mongo-connection:27017')
 	# client = pymongo.MongoClient('mongodb://mongo-0.mongo-service')
-	#Specify the database to be used
+	# Specify the database to be used
 	db = client.news
-	#Specify the collectionlection to be used
+	# Specify the collectionlection to be used
 	collection = db.newscollection
-
 	dao_object = {"cat":"all","titles":[]}
-	#Insert a single document
+	# Insert a single document
 	for i in range(len(result)):
 		dao_object["titles"].append(result.iloc[i,0])
-
 	collection.update_one({"cat":"all"},{"$set": dao_object},upsert=True)
-	#Close the connection
+	# Close the connection
 	client.close()
 
+# run whole application
 write_mongo(application(data_from_datalake()))
+
+# time sleep, that the pod gets rebuild after completion
+time.sleep(500)
