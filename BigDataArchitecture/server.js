@@ -54,17 +54,26 @@ app.getAsync('/', async function (request,response) {
 	let cachedata = await getFromCache(key)
 
 	if (cachedata) {
-		console.log('cachedata')
-		response.send(data)
+		response.send(`<h1>Willkommen bei den aktuellen BigTrends. (Quelle: Cache)</h1> 
+		<ul>
+			<li>Ihr Host ${os.hostname()}</li>
+			<li>Welche Memcached Server?: ${memcachedServers}</li>
+			<li>Aktuelle Trends: ${cachedata["titles"]}</li>
+		</ul>`)
 	} else {
 		let data = await get_data_from_mongo()
 		if (data) {
 			console.log(`Got data=${data}, storing in cache`)
 			if (memcached)
 				await memcached.set(key, data, 30 /* seconds */);
-			response.send(data);
+			response.send(`<h1>Willkommen bei den aktuellen BigTrends.</h1> 
+					<ul>
+						<li>Ihr Host ${os.hostname()}</li>
+						<li>Welche Memcached Server?: ${memcachedServers}</li>
+						<li>Aktuelle Trends: ${data["titles"]}</li>
+					</ul>`); 
 		} else {
-			response.send("No data found");
+			response.send("Noch keine Daten. Bitte warten bis Application das nächste mal läuft!");
 		}
 	}
 })
