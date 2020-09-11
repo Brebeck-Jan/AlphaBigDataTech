@@ -14,6 +14,7 @@ findspark.init()
 from pyspark.sql import SparkSession
 import happybase
 from nltk.corpus import stopwords
+import nltk
 import pandas as pd
 import pymongo
 import sys
@@ -128,6 +129,7 @@ def attach_database():
 
 def write_mongo(result):
 	#Create a MongoDB client
+	print(result)
 	client = pymongo.MongoClient('mongodb://mongo-0.mongo-service') 
 
 	#Specify the database to be used
