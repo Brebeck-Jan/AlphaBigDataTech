@@ -11,7 +11,7 @@ import happybase
 # local setup:
 # connection = happybase.Connection('localhost', 9090)
 # dockersetup
-connectionstring = "hbase-compose"
+connectionstring = "hello"
 print(connectionstring)
 connection = happybase.Connection(connectionstring, 9090)
 connection.tables()
