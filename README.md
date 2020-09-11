@@ -18,7 +18,7 @@ __Dozent:__         Dennis Pfisterer
 # Idee der Anwendung
 
 Die Idee die hinter dieser Anwendung basiert auf der Funktionsweise von Google Trends.
-Dabei werden einschlägige nachrichtenportale mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data-Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die häufigkeit dieser kumuliert. Sobald dies geschehen ist werden wird ein Fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. MIt einer Query werden diese dann Aufgerufen und Dargestellt. 
+Dabei werden einschlägige Nachrichtenportale mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data-Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die häufigkeit dieser kumuliert. Sobald dies geschehen ist, wird ein Fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. MIt einer Query werden diese dann Aufgerufen und Dargestellt. 
 
 
 
@@ -41,10 +41,13 @@ naja wie haben wir dann die einezelnen Komponenten gebaut und wie und warum die 
 
 
 ## Big Data Messaging
-
+Eine Big Data Messaging Einheit wird in unserem Fall nicht benötigt, da kein Response vom Web Server erwartet wird.
 
 ## Big Data Processing
+Daten werden aus dem Data Lake geholt, diese werden dann in ein Resilient Distributed Dataset unter Spark geschrieben und durchlaufen ein Preprocessing. Dieses Preprocessing beinhaltet: Transformation zu kleingeschriebenen Buchstaben, Sätze in eine Listen von Wörtern teilen und das entfernen von Leerzeichen.
 
+Danach wird ausgezählt wie oft jedes Wort vorkommt und die Reihenfolge wird später berücksichtigt.
+Stopwords werden entfernt und das Resultat, der 5 am häufigsten vorkommenden Wörter wird dem Database Server übergeben.
 
 ## Database Server
 Datenbank:
