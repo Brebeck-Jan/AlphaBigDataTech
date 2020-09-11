@@ -12,6 +12,7 @@
     "@awaitjs/express": "^0.6.1",
     "@mysql/xdevapi": "^8.0.21",
     "express": "^4.17.1",
-    "memcache-plus": "^0.2.21"
+    "memcache-plus": "^0.2.21",
+    "mongodb": "^2.2.33"
   }
 }
