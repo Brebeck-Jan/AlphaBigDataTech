@@ -1,11 +1,11 @@
 # Projektdokumentation - “BigTrends”
 
 __Projektteam:__  
-@Brebeck-Jan Jan Niklas Brebeck (_8016697_)  
-@Phantomias3782 Andreas Bernrieder (_7876007_)  
-@NWichter Niklas Wichter (_MatrNr_)  
-@Thorsten-H Thorsten Hilbradt (_5034067_)  
-@SimonScapan Simon Scapan (_6699329_)  
+[Jan Brebeck](https://github.com/Brebeck-Jan) (_8016697_)  
+[Andreas Bernrieder](https://github.com/Phantomias3782) (_7876007_)  
+[Niklas Wichter](https://github.com/NWichter) (_MatrNr_)  
+[Thorsten Hilbradt](https://github.com/Thorsten-H) (_5034067_)  
+[Simon Scapan](https://github.com/SimonScapan) (_6699329_) 
 
 __Studiengang:__    Wirtschaftsinformatik, Data Science  
 
