@@ -18,7 +18,7 @@ __Dozent:__         [Dennis Pfisterer](https://github.com/pfisterer)
 # Idee der Anwendung
 
 Die Idee die hinter dieser Anwendung basiert auf der Funktionsweise von Google Trends.
-Dabei werden einschlägige Nachrichtenportale mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data-Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die häufigkeit dieser kumuliert. Sobald dies geschehen ist, wird ein Fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. MIt einer Query werden diese dann Aufgerufen und Dargestellt. 
+Dabei werden rss-Feeds von einschlägige Nachrichtenportale, wie die Farknfurter allgemien Zeitung und der Spiegel, mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data-Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die häufigkeit dieser kumuliert. Sobald dies geschehen ist, wird ein Fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. MIt einer Query werden diese dann Aufgerufen und Dargestellt. 
 
 
 
@@ -54,10 +54,13 @@ Datenbank:
 Mongo Datenbank
 
 ## Web Server
-Webserver:
+Webserver: Implementiert in JavaScript
+
 HorizontalPodAutoScale:
+
 Falls die CPU Auslastung eines Pods über 50 Prozent steigt wird ein weiterer Pod des Servers erstellt (bis zu maximal 10). Gehandelt wird der Zugriff über den Loadbalancer.
 
+Der Webserver stellt die aktuellen Trends, die auf den gecrawlten Webseiten von der Application gefunden werden, dar.
 ## Cache Server
 Cache:
 HorizontalPodAutoScale:
