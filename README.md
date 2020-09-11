@@ -1,14 +1,14 @@
 # Projektdokumentation - “BigTrends”
 
-__Projektteam:__
-Jan Niklas Brebeck (_8016697_)
-Andreas Bernrieder (_7876007_)
-Niklas Wichter (_MatrNr_)
-Thorsten Hilbradt (_5034067_)
-Simon Scapan (_6699329_)
-__Studiengang:__    Wirtschaftsinformatik, Data Science
-__Kurs:__           WWI18DSB
-__Dozent:__         Dennis Pfisterer
+__Projektteam:__  
+Jan Niklas Brebeck (_8016697_)  
+Andreas Bernrieder (_7876007_)  
+Niklas Wichter (_MatrNr_)  
+Thorsten Hilbradt (_5034067_)  
+Simon Scapan (_6699329_)  
+__Studiengang:__    Wirtschaftsinformatik, Data Science  
+__Kurs:__           WWI18DSB  
+__Dozent:__         Dennis Pfisterer  
 
 
 # Gliederung
