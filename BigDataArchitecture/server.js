@@ -11,8 +11,7 @@ const MongoClient = mongo.MongoClient;
 let memcached = null
 let memcachedServers = []
 
-// set db config
-const dbConfig = "mongodb://mongo-0.mongo-service:27017"
+const dbConfig = "mongodb://mongo-0.mongo-service"
 
 async function getMemcachedServersFromDns() {
 	let queryResult = await dns.lookup('memcached-service', { all: true })
@@ -30,8 +29,8 @@ async function getMemcachedServersFromDns() {
 }
 
 //Initially try to connect to the memcached servers, then each 5s update the list
-//getMemcachedServersFromDns()
-//setInterval(() => getMemcachedServersFromDns(), 5000)
+getMemcachedServersFromDns()
+setInterval(() => getMemcachedServersFromDns(), 5000)
 
 //Get data from cache if a cache exists yet
 async function getFromCache(key) {
@@ -43,20 +42,13 @@ async function getFromCache(key) {
 }
 
 //Get data from database
-async function getFromDatabase(userid) {
-	let session = await mysqlx.getSession(dbConfig);
-	const client = new MongoClient(dbConfig);
+async function getFromDatabase() {
+	const client = await MongoClient(dbConfig);
+	const db = await client.db("news");
 
-	console.log("Executing query " + query)
-	let res = await session.sql(query).execute()
-	let row = res.fetchOne()
+	let res = await db.collection('newscollection').find({}).toArray()
 
-	if (row) {
-		console.log("Query result = ", row)
-		return row[0];
-	} else {
-		return null;
-	}
+	return res
 }
 
 function send_response(response, data) {
@@ -69,16 +61,22 @@ function send_response(response, data) {
 			</ul>`);
 }
 
-app.getAsync(async function (request, response) {
-	let cachedata = await getFromCache(key)
+app.get('/', function (request, response) {
+	console.log("TEstong")
+	response.writeHead(302, { 'Location': 'person/l.mlb.com-p.7491' })
+	response.end();
+})
 
+app.getAsync('/person/:id', async function (request, response) {
+	let key = 'user_'
+	let cachedata = await getFromCache(key)
 
 	if (cachedata) {
 		console.log(`Cache hit for key=${key}, cachedata = ${cachedata}`)
 		send_response(response, cachedata + " (cache hit)");
 	} else {
 		console.log(`Cache miss for key=${key}, querying database`)
-		let data = await getFromDatabase(userid)
+		let data = await getFromDatabase()
 		if (data) {
 			console.log(`Got data=${data}, storing in cache`)
 			if (memcached)
