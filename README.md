@@ -11,7 +11,7 @@ __Studiengang:__    Wirtschaftsinformatik, Data Science
 
 __Kurs:__           WWI18DSB  
 
-__Dozent:__         Dennis Pfisterer  
+__Dozent:__         [Dennis Pfisterer](https://github.com/pfisterer) 
 
 
 
