@@ -136,3 +136,10 @@ org.apache.hadoop.hbase.client.RetriesExhaustedWithDetailsException: Failed 1 ac
 2020-09-11 07:23:59,323 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x69f743b3-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Session establishment complete on server hbase-docker/172.17.0.2:2181, sessionid = 0x1747bdf37b90007, negotiated timeout = 40000
 2020-09-11 07:24:59,327 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x69f743b3] zookeeper.ZooKeeper: Session: 0x1747bdf37b90007 closed
 2020-09-11 07:24:59,327 INFO  [ReadOnlyZKClient-hbase-docker:2181@0x69f743b3-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x1747bdf37b90007
+2020-09-11 08:28:54,011 INFO  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 1622ms
+No GCs detected
+2020-09-11 08:29:13,655 INFO  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 1700ms
+No GCs detected
+2020-09-11 10:23:38,178 INFO  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 1015ms
+No GCs detected
+2020-09-11 10:23:39,089 INFO  [ConnectionCache.Chore.1] hbase.ScheduledChore: Chore: ConnectionCleaner missed its start time

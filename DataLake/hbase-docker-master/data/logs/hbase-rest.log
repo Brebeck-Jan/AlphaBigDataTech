@@ -24,3 +24,10 @@
 2020-09-11 06:37:47,230 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@759d26fb{/,null,AVAILABLE}
 2020-09-11 06:37:47,271 INFO  [main] server.AbstractConnector: Started ServerConnector@41e1e210{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
 2020-09-11 06:37:47,275 INFO  [main] server.Server: Started @34333ms
+2020-09-11 08:28:55,210 INFO  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 1385ms
+No GCs detected
+2020-09-11 08:29:13,266 INFO  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 2102ms
+No GCs detected
+2020-09-11 10:23:38,093 INFO  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 1015ms
+No GCs detected
+2020-09-11 10:23:44,602 INFO  [ConnectionCache.Chore.1] hbase.ScheduledChore: Chore: ConnectionCleaner missed its start time

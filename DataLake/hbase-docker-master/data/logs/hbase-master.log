@@ -367,3 +367,409 @@ qualifier: "crawled_articles"
 2020-09-11 07:37:43,570 INFO  [regionserver/hbase-docker:16020.logRoller] wal.AbstractFSWAL: Rolled WAL /data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.1599806261501 with entries=10, filesize=163.48 KB; new WAL /data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.1599809863405
 2020-09-11 07:37:43,757 INFO  [regionserver/hbase-docker:16020.logRoller] wal.AbstractFSWAL: Rolled WAL /data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.meta.1599806263399.meta with entries=15, filesize=4.10 KB; new WAL /data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.meta.1599809863575.meta
 2020-09-11 07:37:43,758 INFO  [regionserver/hbase-docker:16020.logRoller] wal.AbstractFSWAL: Archiving file:/data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.meta.1599806263399.meta to file:/data/hbase/oldWALs/hbase-docker%2C16020%2C1599806083924.meta.1599806263399.meta
+2020-09-11 07:39:39,593 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=42, hits=38, hitRatio=90.48%, , cachingAccesses=42, cachingHits=38, cachingHitsRatio=90.48%, evictions=389, evicted=0, evictedPerRun=0.0
+2020-09-11 07:44:39,246 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=46, hits=42, hitRatio=91.30%, , cachingAccesses=46, cachingHits=42, cachingHitsRatio=91.30%, evictions=419, evicted=0, evictedPerRun=0.0
+2020-09-11 07:49:02,145 INFO  [regionserver/hbase-docker:16020.Chore.1] regionserver.HRegionServer: MemstoreFlusherChore requesting flush of crawled_articles,,1599806867002.aa3810b146a302e180a9bc81a61cee55. because data has an old edit so flush to free WALs after random delay 217938 ms
+2020-09-11 07:49:38,881 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=50, hits=46, hitRatio=92.00%, , cachingAccesses=50, cachingHits=46, cachingHitsRatio=92.00%, evictions=449, evicted=0, evictedPerRun=0.0
+2020-09-11 07:52:40,089 INFO  [MemStoreFlusher.1] regionserver.HRegion: Flushing 1/1 column families, dataSize=160.89 KB heapSize=179.87 KB
+2020-09-11 07:52:41,111 INFO  [MemStoreFlusher.1] regionserver.DefaultStoreFlusher: Flushed memstore data size=160.89 KB at sequenceid=8 (bloomFilter=false), to=file:/data/hbase/data/default/crawled_articles/aa3810b146a302e180a9bc81a61cee55/.tmp/data/9a0c359e631c48c08dc0323d45d8c868
+2020-09-11 07:52:42,118 INFO  [MemStoreFlusher.1] regionserver.HStore: Added file:/data/hbase/data/default/crawled_articles/aa3810b146a302e180a9bc81a61cee55/data/9a0c359e631c48c08dc0323d45d8c868, entries=255, sequenceid=8, filesize=166.1 K
+2020-09-11 07:52:42,128 INFO  [MemStoreFlusher.1] regionserver.HRegion: Finished flush of dataSize ~160.89 KB/164748, heapSize ~179.88 KB/184192, currentSize=0 B/0 for aa3810b146a302e180a9bc81a61cee55 in 2039ms, sequenceid=8, compaction requested=false
+2020-09-11 07:52:58,808 INFO  [WALProcedureStoreSyncThread] wal.WALProcedureStore: Rolled new Procedure Store WAL, id=3
+2020-09-11 07:52:58,834 INFO  [WALProcedureStoreSyncThread] wal.WALProcedureStore: Remove all state logs with ID less than 2, since no active procedures
+2020-09-11 07:52:58,834 INFO  [WALProcedureStoreSyncThread] wal.ProcedureWALFile: Archiving file:/data/hbase/MasterProcWALs/pv2-00000000000000000002.log to file:/data/hbase/oldWALs/pv2-00000000000000000002.log
+2020-09-11 07:54:38,533 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=54, hits=50, hitRatio=92.59%, , cachingAccesses=54, cachingHits=50, cachingHitsRatio=92.59%, evictions=479, evicted=0, evictedPerRun=0.0
+2020-09-11 07:59:38,170 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=58, hits=54, hitRatio=93.10%, , cachingAccesses=58, cachingHits=54, cachingHitsRatio=93.10%, evictions=509, evicted=0, evictedPerRun=0.0
+2020-09-11 08:04:37,813 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=62, hits=58, hitRatio=93.55%, , cachingAccesses=62, cachingHits=58, cachingHitsRatio=93.55%, evictions=539, evicted=0, evictedPerRun=0.0
+2020-09-11 08:09:37,456 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=66, hits=62, hitRatio=93.94%, , cachingAccesses=66, cachingHits=62, cachingHitsRatio=93.94%, evictions=569, evicted=0, evictedPerRun=0.0
+2020-09-11 08:14:37,101 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=70, hits=66, hitRatio=94.29%, , cachingAccesses=70, cachingHits=66, cachingHitsRatio=94.29%, evictions=599, evicted=0, evictedPerRun=0.0
+2020-09-11 08:19:36,743 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=74, hits=70, hitRatio=94.59%, , cachingAccesses=74, cachingHits=70, cachingHitsRatio=94.59%, evictions=629, evicted=0, evictedPerRun=0.0
+2020-09-11 08:24:36,388 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=78, hits=74, hitRatio=94.87%, , cachingAccesses=78, cachingHits=74, cachingHitsRatio=94.87%, evictions=659, evicted=0, evictedPerRun=0.0
+2020-09-11 08:28:28,907 INFO  [master/hbase-docker:16000.splitLogManager..Chore.1] hbase.ScheduledChore: Chore: SplitLogManager Timeout Monitor missed its start time
+2020-09-11 08:28:46,691 INFO  [master/hbase-docker:16000.splitLogManager..Chore.1] hbase.ScheduledChore: Chore: SplitLogManager Timeout Monitor missed its start time
+2020-09-11 08:28:50,892 INFO  [master/hbase-docker:16000.splitLogManager..Chore.1] hbase.ScheduledChore: Chore: SplitLogManager Timeout Monitor missed its start time
+2020-09-11 08:28:52,777 INFO  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 2544ms
+No GCs detected
+2020-09-11 08:29:10,649 INFO  [master/hbase-docker:16000.splitLogManager..Chore.1] hbase.ScheduledChore: Chore: SplitLogManager Timeout Monitor missed its start time
+2020-09-11 08:29:14,988 WARN  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 7866ms for sessionid 0x1747bdf37b90000
+2020-09-11 08:29:15,123 WARN  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 8166ms for sessionid 0x1747bdf37b90004
+2020-09-11 08:29:15,122 WARN  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 8155ms for sessionid 0x1747bdf37b90001
+2020-09-11 08:29:15,177 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 7866ms for sessionid 0x1747bdf37b90000, closing socket connection and attempting reconnect
+2020-09-11 08:29:14,993 INFO  [master/hbase-docker:16000.splitLogManager..Chore.1] hbase.ScheduledChore: Chore: SplitLogManager Timeout Monitor missed its start time
+2020-09-11 08:29:15,279 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 8155ms for sessionid 0x1747bdf37b90001, closing socket connection and attempting reconnect
+2020-09-11 08:29:15,283 INFO  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 8166ms for sessionid 0x1747bdf37b90004, closing socket connection and attempting reconnect
+2020-09-11 08:29:15,316 INFO  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 4163ms
+No GCs detected
+2020-09-11 08:29:16,038 WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x1747bdf37b90000, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:239)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:748)
+2020-09-11 08:29:16,166 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: Closed socket connection for client /172.17.0.2:41522 which had sessionid 0x1747bdf37b90000
+2020-09-11 08:29:16,167 WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x1747bdf37b90001, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:239)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:748)
+2020-09-11 08:29:16,176 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: Closed socket connection for client /172.17.0.2:41524 which had sessionid 0x1747bdf37b90001
+2020-09-11 08:29:16,176 WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x1747bdf37b90004, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:239)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:748)
+2020-09-11 08:29:16,177 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: Closed socket connection for client /172.17.0.2:41530 which had sessionid 0x1747bdf37b90004
+2020-09-11 08:29:16,701 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Opening socket connection to server hbase-docker/172.17.0.2:2181. Will not attempt to authenticate using SASL (unknown error)
+2020-09-11 08:29:16,705 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxnFactory: Accepted socket connection from /172.17.0.2:41688
+2020-09-11 08:29:16,708 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Socket connection established to hbase-docker/172.17.0.2:2181, initiating session
+2020-09-11 08:29:16,716 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Opening socket connection to server hbase-docker/172.17.0.2:2181. Will not attempt to authenticate using SASL (unknown error)
+2020-09-11 08:29:16,723 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxnFactory: Accepted socket connection from /172.17.0.2:41690
+2020-09-11 08:29:16,725 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Socket connection established to hbase-docker/172.17.0.2:2181, initiating session
+2020-09-11 08:29:17,167 INFO  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Opening socket connection to server hbase-docker/172.17.0.2:2181. Will not attempt to authenticate using SASL (unknown error)
+2020-09-11 08:29:17,168 INFO  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Socket connection established to hbase-docker/172.17.0.2:2181, initiating session
+2020-09-11 08:29:17,170 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxnFactory: Accepted socket connection from /172.17.0.2:41692
+2020-09-11 08:29:17,173 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Client attempting to renew session 0x1747bdf37b90004 at /172.17.0.2:41692
+2020-09-11 08:29:17,178 INFO  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Session establishment complete on server hbase-docker/172.17.0.2:2181, sessionid = 0x1747bdf37b90004, negotiated timeout = 10000
+2020-09-11 08:29:17,179 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Established session 0x1747bdf37b90004 with negotiated timeout 10000 for client /172.17.0.2:41692
+2020-09-11 08:29:17,533 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Client attempting to renew session 0x1747bdf37b90000 at /172.17.0.2:41690
+2020-09-11 08:29:17,536 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Session establishment complete on server hbase-docker/172.17.0.2:2181, sessionid = 0x1747bdf37b90000, negotiated timeout = 10000
+2020-09-11 08:29:17,538 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Established session 0x1747bdf37b90000 with negotiated timeout 10000 for client /172.17.0.2:41690
+2020-09-11 08:29:17,538 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Client attempting to renew session 0x1747bdf37b90001 at /172.17.0.2:41688
+2020-09-11 08:29:17,539 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Established session 0x1747bdf37b90001 with negotiated timeout 10000 for client /172.17.0.2:41688
+2020-09-11 08:29:17,540 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Session establishment complete on server hbase-docker/172.17.0.2:2181, sessionid = 0x1747bdf37b90001, negotiated timeout = 10000
+2020-09-11 08:29:36,030 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=82, hits=78, hitRatio=95.12%, , cachingAccesses=82, cachingHits=78, cachingHitsRatio=95.12%, evictions=689, evicted=0, evictedPerRun=0.0
+2020-09-11 08:34:23,621 INFO  [MobFileCache #0] mob.MobFileCache: MobFileCache Statistics, access: 0, miss: 0, hit: 0, hit ratio: 0%, evicted files: 0
+2020-09-11 08:34:35,667 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=86, hits=82, hitRatio=95.35%, , cachingAccesses=86, cachingHits=82, cachingHitsRatio=95.35%, evictions=719, evicted=0, evictedPerRun=0.0
+2020-09-11 08:37:45,671 INFO  [regionserver/hbase-docker:16020.logRoller] wal.AbstractFSWAL: Rolled WAL /data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.1599809863405 with entries=2, filesize=613 B; new WAL /data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.1599813465033
+2020-09-11 08:37:45,674 INFO  [regionserver/hbase-docker:16020.logRoller] wal.AbstractFSWAL: Archiving file:/data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.1599806261501 to file:/data/hbase/oldWALs/hbase-docker%2C16020%2C1599806083924.1599806261501
+2020-09-11 08:37:45,820 INFO  [regionserver/hbase-docker:16020.logRoller] wal.AbstractFSWAL: Archiving file:/data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.1599809863405 to file:/data/hbase/oldWALs/hbase-docker%2C16020%2C1599806083924.1599809863405
+2020-09-11 08:37:46,118 INFO  [regionserver/hbase-docker:16020.logRoller] wal.AbstractFSWAL: Rolled WAL /data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.meta.1599809863575.meta with entries=0, filesize=83 B; new WAL /data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.meta.1599813465940.meta
+2020-09-11 08:37:46,123 INFO  [regionserver/hbase-docker:16020.logRoller] wal.AbstractFSWAL: Archiving file:/data/hbase/WALs/hbase-docker,16020,1599806083924/hbase-docker%2C16020%2C1599806083924.meta.1599809863575.meta to file:/data/hbase/oldWALs/hbase-docker%2C16020%2C1599806083924.meta.1599809863575.meta
+2020-09-11 08:39:35,315 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=90, hits=86, hitRatio=95.56%, , cachingAccesses=90, cachingHits=86, cachingHitsRatio=95.56%, evictions=749, evicted=0, evictedPerRun=0.0
+2020-09-11 08:44:34,959 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=94, hits=90, hitRatio=95.74%, , cachingAccesses=94, cachingHits=90, cachingHitsRatio=95.74%, evictions=779, evicted=0, evictedPerRun=0.0
+2020-09-11 08:49:34,600 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=98, hits=94, hitRatio=95.92%, , cachingAccesses=98, cachingHits=94, cachingHitsRatio=95.92%, evictions=809, evicted=0, evictedPerRun=0.0
+2020-09-11 08:52:54,686 INFO  [WALProcedureStoreSyncThread] wal.WALProcedureStore: Rolled new Procedure Store WAL, id=4
+2020-09-11 08:52:54,736 INFO  [WALProcedureStoreSyncThread] wal.WALProcedureStore: Remove all state logs with ID less than 3, since no active procedures
+2020-09-11 08:52:54,736 INFO  [WALProcedureStoreSyncThread] wal.ProcedureWALFile: Archiving file:/data/hbase/MasterProcWALs/pv2-00000000000000000003.log to file:/data/hbase/oldWALs/pv2-00000000000000000003.log
+2020-09-11 08:54:34,246 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=102, hits=98, hitRatio=96.08%, , cachingAccesses=102, cachingHits=98, cachingHitsRatio=96.08%, evictions=839, evicted=0, evictedPerRun=0.0
+2020-09-11 08:59:33,889 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=106, hits=102, hitRatio=96.23%, , cachingAccesses=106, cachingHits=102, cachingHitsRatio=96.23%, evictions=869, evicted=0, evictedPerRun=0.0
+2020-09-11 09:04:33,541 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=110, hits=106, hitRatio=96.36%, , cachingAccesses=110, cachingHits=106, cachingHitsRatio=96.36%, evictions=899, evicted=0, evictedPerRun=0.0
+2020-09-11 09:08:52,232 INFO  [master/hbase-docker:16000.splitLogManager..Chore.1] hbase.ScheduledChore: Chore: SplitLogManager Timeout Monitor missed its start time
+2020-09-11 09:09:34,135 INFO  [master/hbase-docker:16000.splitLogManager..Chore.1] hbase.ScheduledChore: Chore: SplitLogManager Timeout Monitor missed its start time
+2020-09-11 09:09:34,164 INFO  [LruBlockCacheStatsExecutor] hfile.LruBlockCache: totalSize=150.40 KB, freeSize=192.45 MB, max=192.60 MB, blockCount=4, accesses=114, hits=110, hitRatio=96.49%, , cachingAccesses=114, cachingHits=110, cachingHitsRatio=96.49%, evictions=929, evicted=0, evictedPerRun=0.0
+2020-09-11 10:23:38,618 WARN  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 4447171ms for sessionid 0x1747bdf37b90001
+2020-09-11 10:23:38,627 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 4447171ms for sessionid 0x1747bdf37b90001, closing socket connection and attempting reconnect
+2020-09-11 10:23:38,633 WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x1747bdf37b90001, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:239)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:748)
+2020-09-11 10:23:38,673 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: Closed socket connection for client /172.17.0.2:41688 which had sessionid 0x1747bdf37b90001
+2020-09-11 10:23:38,913 WARN  [RS:0;hbase-docker:16020] util.Sleeper: We slept 4446810ms instead of 3000ms, this is likely due to a long garbage collecting pause and it's usually bad, see http://hbase.apache.org/book.html#trouble.rs.runtime.zkexpired
+2020-09-11 10:23:38,941 INFO  [master/hbase-docker:16000.splitLogManager..Chore.1] hbase.ScheduledChore: Chore: SplitLogManager Timeout Monitor missed its start time
+2020-09-11 10:23:39,177 WARN  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 4447140ms for sessionid 0x1747bdf37b90000
+2020-09-11 10:23:39,177 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 4447140ms for sessionid 0x1747bdf37b90000, closing socket connection and attempting reconnect
+2020-09-11 10:23:39,179 WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x1747bdf37b90000, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:239)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:748)
+2020-09-11 10:23:39,180 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: Closed socket connection for client /172.17.0.2:41690 which had sessionid 0x1747bdf37b90000
+2020-09-11 10:23:39,356 WARN  [M:0;hbase-docker:16000] util.Sleeper: We slept 4446811ms instead of 3000ms, this is likely due to a long garbage collecting pause and it's usually bad, see http://hbase.apache.org/book.html#trouble.rs.runtime.zkexpired
+2020-09-11 10:23:39,458 WARN  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 4447141ms for sessionid 0x1747bdf37b90004
+2020-09-11 10:23:39,458 INFO  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Client session timed out, have not heard from server in 4447141ms for sessionid 0x1747bdf37b90004, closing socket connection and attempting reconnect
+2020-09-11 10:23:39,459 WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x1747bdf37b90004, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:239)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:748)
+2020-09-11 10:23:39,462 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: Closed socket connection for client /172.17.0.2:41692 which had sessionid 0x1747bdf37b90004
+2020-09-11 10:23:39,821 INFO  [SessionTracker] server.ZooKeeperServer: Expiring session 0x1747bdf37b90001, timeout of 10000ms exceeded
+2020-09-11 10:23:40,037 INFO  [SessionTracker] server.ZooKeeperServer: Expiring session 0x1747bdf37b90000, timeout of 10000ms exceeded
+2020-09-11 10:23:40,046 INFO  [SessionTracker] server.ZooKeeperServer: Expiring session 0x1747bdf37b90004, timeout of 10000ms exceeded
+2020-09-11 10:23:40,342 INFO  [regionserver/hbase-docker:16020.Chore.1] hbase.ScheduledChore: Chore: CompactionChecker missed its start time
+2020-09-11 10:23:40,371 INFO  [regionserver/hbase-docker:16020.Chore.2] hbase.ScheduledChore: Chore: MemstoreFlusherChore missed its start time
+2020-09-11 10:23:40,376 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Opening socket connection to server hbase-docker/172.17.0.2:2181. Will not attempt to authenticate using SASL (unknown error)
+2020-09-11 10:23:40,382 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxnFactory: Accepted socket connection from /172.17.0.2:41710
+2020-09-11 10:23:40,386 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Socket connection established to hbase-docker/172.17.0.2:2181, initiating session
+2020-09-11 10:23:40,401 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Client attempting to renew session 0x1747bdf37b90001 at /172.17.0.2:41710
+2020-09-11 10:23:40,411 WARN  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x1747bdf37b90001 has expired
+2020-09-11 10:23:40,412 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x1747bdf37b90001 has expired, closing socket connection
+2020-09-11 10:23:40,413 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Invalid session 0x1747bdf37b90001 for client /172.17.0.2:41710, probably expired
+2020-09-11 10:23:40,415 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: Closed socket connection for client /172.17.0.2:41710 which had sessionid 0x1747bdf37b90001
+2020-09-11 10:23:40,524 INFO  [ProcessThread(sid:0 cport:2181):] server.PrepRequestProcessor: Processed session termination for sessionid: 0x1747bdf37b90001
+2020-09-11 10:23:40,768 INFO  [ProcessThread(sid:0 cport:2181):] server.PrepRequestProcessor: Processed session termination for sessionid: 0x1747bdf37b90000
+2020-09-11 10:23:40,768 INFO  [ProcessThread(sid:0 cport:2181):] server.PrepRequestProcessor: Processed session termination for sessionid: 0x1747bdf37b90004
+2020-09-11 10:23:41,131 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Opening socket connection to server hbase-docker/172.17.0.2:2181. Will not attempt to authenticate using SASL (unknown error)
+2020-09-11 10:23:41,132 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Socket connection established to hbase-docker/172.17.0.2:2181, initiating session
+2020-09-11 10:23:41,147 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxnFactory: Accepted socket connection from /172.17.0.2:41712
+2020-09-11 10:23:41,147 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Client attempting to renew session 0x1747bdf37b90000 at /172.17.0.2:41712
+2020-09-11 10:23:41,147 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Invalid session 0x1747bdf37b90000 for client /172.17.0.2:41712, probably expired
+2020-09-11 10:23:41,148 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: Closed socket connection for client /172.17.0.2:41712 which had sessionid 0x1747bdf37b90000
+2020-09-11 10:23:41,158 WARN  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x1747bdf37b90000 has expired
+2020-09-11 10:23:41,161 INFO  [main-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x1747bdf37b90000 has expired, closing socket connection
+2020-09-11 10:23:41,321 ERROR [main-EventThread] regionserver.HRegionServer: ***** ABORTING region server hbase-docker,16020,1599806083924: regionserver:16020-0x1747bdf37b90001, quorum=hbase-docker:2181, baseZNode=/hbase regionserver:16020-0x1747bdf37b90001 received expired from ZooKeeper, aborting *****
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.connectionEvent(ZKWatcher.java:557)
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.process(ZKWatcher.java:487)
+	at org.apache.hadoop.hbase.zookeeper.PendingWatcher.process(PendingWatcher.java:40)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:530)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:505)
+2020-09-11 10:23:41,326 ERROR [main-EventThread] master.HMaster: Master server abort: loaded coprocessors are: [org.apache.hadoop.hbase.coprocessor.MultiRowMutationEndpoint]
+2020-09-11 10:23:41,331 ERROR [main-EventThread] master.HMaster: ***** ABORTING master hbase-docker,16000,1599806062138: master:16000-0x1747bdf37b90000, quorum=hbase-docker:2181, baseZNode=/hbase master:16000-0x1747bdf37b90000 received expired from ZooKeeper, aborting *****
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.connectionEvent(ZKWatcher.java:557)
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.process(ZKWatcher.java:487)
+	at org.apache.hadoop.hbase.zookeeper.PendingWatcher.process(PendingWatcher.java:40)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:530)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:505)
+2020-09-11 10:23:41,336 INFO  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Opening socket connection to server hbase-docker/172.17.0.2:2181. Will not attempt to authenticate using SASL (unknown error)
+2020-09-11 10:23:41,339 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxnFactory: Accepted socket connection from /172.17.0.2:41714
+2020-09-11 10:23:41,340 INFO  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Socket connection established to hbase-docker/172.17.0.2:2181, initiating session
+2020-09-11 10:23:41,343 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Client attempting to renew session 0x1747bdf37b90004 at /172.17.0.2:41714
+2020-09-11 10:23:41,343 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.ZooKeeperServer: Invalid session 0x1747bdf37b90004 for client /172.17.0.2:41714, probably expired
+2020-09-11 10:23:41,344 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxn: Closed socket connection for client /172.17.0.2:41714 which had sessionid 0x1747bdf37b90004
+2020-09-11 10:23:41,357 WARN  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x1747bdf37b90004 has expired
+2020-09-11 10:23:41,358 INFO  [master/hbase-docker:16000:becomeActiveMaster-SendThread(hbase-docker:2181)] zookeeper.ClientCnxn: Unable to reconnect to ZooKeeper service, session 0x1747bdf37b90004 has expired, closing socket connection
+2020-09-11 10:23:41,358 INFO  [main-EventThread] regionserver.HRegionServer: ***** STOPPING region server 'hbase-docker,16000,1599806062138' *****
+2020-09-11 10:23:41,358 INFO  [main-EventThread] regionserver.HRegionServer: STOPPED: Stopped by main-EventThread
+2020-09-11 10:23:41,360 ERROR [main-EventThread] regionserver.HRegionServer: RegionServer abort: loaded coprocessors are: [org.apache.hadoop.hbase.coprocessor.MultiRowMutationEndpoint]
+2020-09-11 10:23:41,396 INFO  [master/hbase-docker:16000:becomeActiveMaster-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x1747bdf37b90004
+2020-09-11 10:23:41,689 WARN  [main-EventThread] zookeeper.ZKUtil: master:16000-0x1747bdf37b90000, quorum=hbase-docker:2181, baseZNode=/hbase Unable to get data of znode /hbase/master
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/master
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1212)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:340)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:610)
+	at org.apache.hadoop.hbase.zookeeper.MasterAddressTracker.getMasterAddress(MasterAddressTracker.java:150)
+	at org.apache.hadoop.hbase.master.ActiveMasterManager.stop(ActiveMasterManager.java:269)
+	at org.apache.hadoop.hbase.master.HMaster.stop(HMaster.java:2947)
+	at org.apache.hadoop.hbase.master.HMaster.stopMaster(HMaster.java:2939)
+	at org.apache.hadoop.hbase.master.HMaster.abort(HMaster.java:2854)
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.connectionEvent(ZKWatcher.java:557)
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.process(ZKWatcher.java:487)
+	at org.apache.hadoop.hbase.zookeeper.PendingWatcher.process(PendingWatcher.java:40)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:530)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:505)
+2020-09-11 10:23:41,767 ERROR [main-EventThread] zookeeper.ZKWatcher: master:16000-0x1747bdf37b90000, quorum=hbase-docker:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/master
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1212)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:340)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:610)
+	at org.apache.hadoop.hbase.zookeeper.MasterAddressTracker.getMasterAddress(MasterAddressTracker.java:150)
+	at org.apache.hadoop.hbase.master.ActiveMasterManager.stop(ActiveMasterManager.java:269)
+	at org.apache.hadoop.hbase.master.HMaster.stop(HMaster.java:2947)
+	at org.apache.hadoop.hbase.master.HMaster.stopMaster(HMaster.java:2939)
+	at org.apache.hadoop.hbase.master.HMaster.abort(HMaster.java:2854)
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.connectionEvent(ZKWatcher.java:557)
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.process(ZKWatcher.java:487)
+	at org.apache.hadoop.hbase.zookeeper.PendingWatcher.process(PendingWatcher.java:40)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:530)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:505)
+2020-09-11 10:23:41,793 INFO  [main-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x1747bdf37b90000
+2020-09-11 10:23:41,809 INFO  [M:0;hbase-docker:16000] regionserver.HRegionServer: Stopping infoServer
+2020-09-11 10:23:41,944 INFO  [master/hbase-docker:16000.splitLogManager..Chore.1] hbase.ScheduledChore: Chore: SplitLogManager Timeout Monitor was stopped
+2020-09-11 10:23:43,125 INFO  [M:0;hbase-docker:16000] handler.ContextHandler: Stopped o.e.j.w.WebAppContext@2a22ad2b{/,null,UNAVAILABLE}{file:/opt/hbase/hbase-webapps/master}
+2020-09-11 10:23:43,429 INFO  [M:0;hbase-docker:16000] server.AbstractConnector: Stopped ServerConnector@42e08f27{HTTP/1.1,[http/1.1]}{hbase-docker:16010}
+2020-09-11 10:23:43,477 INFO  [main-EventThread] regionserver.HRegionServer: 
+    "FlushOutputSize_max" : 0,
+    "FlushOutputSize_mean" : 0,
+    "FlushOutputSize_25th_percentile" : 0,
+    "FlushOutputSize_median" : 0,
+    "FlushOutputSize_75th_percentile" : 0,
+    "FlushOutputSize_90th_percentile" : 0,
+    "FlushOutputSize_95th_percentile" : 0,
+    "FlushOutputSize_98th_percentile" : 0,
+    "FlushOutputSize_99th_percentile" : 0,
+    "FlushOutputSize_99.9th_percentile" : 0,
+    "FlushOutputSize_SizeRangeCount_100000000-inf" : 4,
+    "Bulkload_count" : 0,
+    "Bulkload_mean_rate" : 0.0,
+    "Bulkload_1min_rate" : 0.0,
+    "Bulkload_5min_rate" : 0.0,
+    "Bulkload_15min_rate" : 0.0,
+    "Bulkload_num_ops" : 0,
+    "Bulkload_min" : 0,
+    "Bulkload_max" : 0,
+    "Bulkload_mean" : 0,
+    "Bulkload_25th_percentile" : 0,
+    "Bulkload_median" : 0,
+    "Bulkload_75th_percentile" : 0,
+    "Bulkload_90th_percentile" : 0,
+    "Bulkload_95th_percentile" : 0,
+    "Bulkload_98th_percentile" : 0,
+    "Bulkload_99th_percentile" : 0,
+    "Bulkload_99.9th_percentile" : 0
+  } ]
+}
+2020-09-11 10:23:43,491 INFO  [M:0;hbase-docker:16000] handler.ContextHandler: Stopped o.e.j.s.ServletContextHandler@53093491{/static,file:///opt/hbase/hbase-webapps/static/,UNAVAILABLE}
+2020-09-11 10:23:43,504 INFO  [M:0;hbase-docker:16000] handler.ContextHandler: Stopped o.e.j.s.ServletContextHandler@6ff37443{/logs,file:///opt/hbase/logs/,UNAVAILABLE}
+2020-09-11 10:23:43,762 INFO  [M:0;hbase-docker:16000] regionserver.HRegionServer: stopping server hbase-docker,16000,1599806062138
+2020-09-11 10:23:43,838 INFO  [M:0;hbase-docker:16000] regionserver.HRegionServer: stopping server hbase-docker,16000,1599806062138; all regions closed.
+2020-09-11 10:23:43,841 INFO  [M:0;hbase-docker:16000] master.MasterMobCompactionThread: Waiting for Mob Compaction Thread to finish...
+2020-09-11 10:23:43,841 INFO  [M:0;hbase-docker:16000] master.MasterMobCompactionThread: Waiting for Region Server Mob Compaction Thread to finish...
+2020-09-11 10:23:44,596 INFO  [M:0;hbase-docker:16000] hbase.ChoreService: Chore service for: master/hbase-docker:16000 had [] on shutdown
+2020-09-11 10:23:44,710 WARN  [RpcServer.default.FPBQ.Fifo.handler=29,queue=2,port=16000] master.MasterRpcServices: hbase-docker,16020,1599806083924 reported a fatal error:
+***** ABORTING region server hbase-docker,16020,1599806083924: regionserver:16020-0x1747bdf37b90001, quorum=hbase-docker:2181, baseZNode=/hbase regionserver:16020-0x1747bdf37b90001 received expired from ZooKeeper, aborting *****
+Cause:
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.connectionEvent(ZKWatcher.java:557)
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.process(ZKWatcher.java:487)
+	at org.apache.hadoop.hbase.zookeeper.PendingWatcher.process(PendingWatcher.java:40)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:530)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:505)
+
+2020-09-11 10:23:44,742 WARN  [M:0;hbase-docker:16000] zookeeper.ZKUtil: master:16000-0x1747bdf37b90000, quorum=hbase-docker:2181, baseZNode=/hbase Unable to get data of znode /hbase/master
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/master
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1212)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:340)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:610)
+	at org.apache.hadoop.hbase.zookeeper.MasterAddressTracker.getMasterAddress(MasterAddressTracker.java:150)
+	at org.apache.hadoop.hbase.master.ActiveMasterManager.stop(ActiveMasterManager.java:269)
+	at org.apache.hadoop.hbase.master.HMaster.stopServiceThreads(HMaster.java:1404)
+	at org.apache.hadoop.hbase.regionserver.HRegionServer.run(HRegionServer.java:1138)
+	at org.apache.hadoop.hbase.master.HMaster.run(HMaster.java:595)
+	at org.apache.hadoop.hbase.master.HMasterCommandLine$LocalHMaster.run(HMasterCommandLine.java:313)
+	at java.lang.Thread.run(Thread.java:748)
+2020-09-11 10:23:44,773 ERROR [M:0;hbase-docker:16000] zookeeper.ZKWatcher: master:16000-0x1747bdf37b90000, quorum=hbase-docker:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/master
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.getData(ZooKeeper.java:1212)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.getData(RecoverableZooKeeper.java:340)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.getData(ZKUtil.java:610)
+	at org.apache.hadoop.hbase.zookeeper.MasterAddressTracker.getMasterAddress(MasterAddressTracker.java:150)
+	at org.apache.hadoop.hbase.master.ActiveMasterManager.stop(ActiveMasterManager.java:269)
+	at org.apache.hadoop.hbase.master.HMaster.stopServiceThreads(HMaster.java:1404)
+	at org.apache.hadoop.hbase.regionserver.HRegionServer.run(HRegionServer.java:1138)
+	at org.apache.hadoop.hbase.master.HMaster.run(HMaster.java:595)
+	at org.apache.hadoop.hbase.master.HMasterCommandLine$LocalHMaster.run(HMasterCommandLine.java:313)
+	at java.lang.Thread.run(Thread.java:748)
+2020-09-11 10:23:44,775 INFO  [M:0;hbase-docker:16000] assignment.AssignmentManager: Stopping assignment manager
+2020-09-11 10:23:44,831 INFO  [M:0;hbase-docker:16000] procedure2.RemoteProcedureDispatcher: Stopping procedure remote dispatcher
+2020-09-11 10:23:44,841 INFO  [M:0;hbase-docker:16000] procedure2.ProcedureExecutor: Stopping
+2020-09-11 10:23:44,927 INFO  [main-EventThread] regionserver.HRegionServer: ***** STOPPING region server 'hbase-docker,16020,1599806083924' *****
+2020-09-11 10:23:44,944 INFO  [main-EventThread] regionserver.HRegionServer: STOPPED: regionserver:16020-0x1747bdf37b90001, quorum=hbase-docker:2181, baseZNode=/hbase regionserver:16020-0x1747bdf37b90001 received expired from ZooKeeper, aborting
+2020-09-11 10:23:44,944 ERROR [main-EventThread] regionserver.HRegionServer: ***** ABORTING region server hbase-docker,16020,1599806083924: regionserver:16020-0x1747bdf37b90001, quorum=hbase-docker:2181, baseZNode=/hbase regionserver:16020-0x1747bdf37b90001 received expired from ZooKeeper, aborting *****
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.connectionEvent(ZKWatcher.java:557)
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.process(ZKWatcher.java:487)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:530)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:505)
+2020-09-11 10:23:45,007 ERROR [main-EventThread] regionserver.HRegionServer: RegionServer abort: loaded coprocessors are: [org.apache.hadoop.hbase.coprocessor.MultiRowMutationEndpoint]
+2020-09-11 10:23:44,989 INFO  [RS:0;hbase-docker:16020] regionserver.SplitLogWorker: Sending interrupt to stop the worker thread
+2020-09-11 10:23:45,017 INFO  [RS:0;hbase-docker:16020] regionserver.HRegionServer: Stopping infoServer
+2020-09-11 10:23:45,064 INFO  [SplitLogWorker-hbase-docker:16020] regionserver.SplitLogWorker: SplitLogWorker interrupted. Exiting. 
+2020-09-11 10:23:45,128 INFO  [SplitLogWorker-hbase-docker:16020] regionserver.SplitLogWorker: SplitLogWorker hbase-docker,16020,1599806083924 exiting
+2020-09-11 10:23:45,175 INFO  [M:0;hbase-docker:16000] wal.WALProcedureStore: Stopping the WAL Procedure Store, isAbort=false
+2020-09-11 10:23:45,224 INFO  [main-EventThread] regionserver.HRegionServer: 
+    "FlushOutputSize_max" : 0,
+    "FlushOutputSize_mean" : 0,
+    "FlushOutputSize_25th_percentile" : 0,
+    "FlushOutputSize_median" : 0,
+    "FlushOutputSize_75th_percentile" : 0,
+    "FlushOutputSize_90th_percentile" : 0,
+    "FlushOutputSize_95th_percentile" : 0,
+    "FlushOutputSize_98th_percentile" : 0,
+    "FlushOutputSize_99th_percentile" : 0,
+    "FlushOutputSize_99.9th_percentile" : 0,
+    "FlushOutputSize_SizeRangeCount_100000000-inf" : 4,
+    "Bulkload_count" : 0,
+    "Bulkload_mean_rate" : 0.0,
+    "Bulkload_1min_rate" : 0.0,
+    "Bulkload_5min_rate" : 0.0,
+    "Bulkload_15min_rate" : 0.0,
+    "Bulkload_num_ops" : 0,
+    "Bulkload_min" : 0,
+    "Bulkload_max" : 0,
+    "Bulkload_mean" : 0,
+    "Bulkload_25th_percentile" : 0,
+    "Bulkload_median" : 0,
+    "Bulkload_75th_percentile" : 0,
+    "Bulkload_90th_percentile" : 0,
+    "Bulkload_95th_percentile" : 0,
+    "Bulkload_98th_percentile" : 0,
+    "Bulkload_99th_percentile" : 0,
+    "Bulkload_99.9th_percentile" : 0
+  } ]
+}
+2020-09-11 10:23:45,269 WARN  [RpcServer.default.FPBQ.Fifo.handler=29,queue=2,port=16000] master.MasterRpcServices: hbase-docker,16020,1599806083924 reported a fatal error:
+***** ABORTING region server hbase-docker,16020,1599806083924: regionserver:16020-0x1747bdf37b90001, quorum=hbase-docker:2181, baseZNode=/hbase regionserver:16020-0x1747bdf37b90001 received expired from ZooKeeper, aborting *****
+Cause:
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.connectionEvent(ZKWatcher.java:557)
+	at org.apache.hadoop.hbase.zookeeper.ZKWatcher.process(ZKWatcher.java:487)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:530)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:505)
+
+2020-09-11 10:23:45,271 INFO  [M:0;hbase-docker:16000] hbase.ChoreService: Chore service for: master/hbase-docker:16000.splitLogManager. had [] on shutdown
+2020-09-11 10:23:45,271 INFO  [RS:0;hbase-docker:16020] handler.ContextHandler: Stopped o.e.j.w.WebAppContext@236134a1{/,null,UNAVAILABLE}{file:/opt/hbase/hbase-webapps/regionserver}
+2020-09-11 10:23:45,281 INFO  [main-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x1747bdf37b90001
+2020-09-11 10:23:45,275 INFO  [M:0;hbase-docker:16000] flush.MasterFlushTableProcedureManager: stop: server shutting down.
+2020-09-11 10:23:45,287 INFO  [RS:0;hbase-docker:16020] server.AbstractConnector: Stopped ServerConnector@5584516e{HTTP/1.1,[http/1.1]}{hbase-docker:16030}
+2020-09-11 10:23:45,309 INFO  [RS:0;hbase-docker:16020] handler.ContextHandler: Stopped o.e.j.s.ServletContextHandler@108bdbd8{/static,file:///opt/hbase/hbase-webapps/static/,UNAVAILABLE}
+2020-09-11 10:23:45,319 INFO  [RS:0;hbase-docker:16020] handler.ContextHandler: Stopped o.e.j.s.ServletContextHandler@e344ad3{/logs,file:///opt/hbase/logs/,UNAVAILABLE}
+2020-09-11 10:23:45,322 INFO  [M:0;hbase-docker:16000] ipc.NettyRpcServer: Stopping server on /172.17.0.2:16000
+2020-09-11 10:23:45,332 INFO  [RS:0;hbase-docker:16020] regionserver.HeapMemoryManager: Stopping
+2020-09-11 10:23:45,336 INFO  [RS:0;hbase-docker:16020] flush.RegionServerFlushTableProcedureManager: Stopping region server flush procedure manager abruptly.
+2020-09-11 10:23:45,336 INFO  [MemStoreFlusher.1] regionserver.MemStoreFlusher: MemStoreFlusher.1 exiting
+2020-09-11 10:23:45,390 INFO  [RS:0;hbase-docker:16020] snapshot.RegionServerSnapshotManager: Stopping RegionServerSnapshotManager abruptly.
+2020-09-11 10:23:45,344 INFO  [MemStoreFlusher.0] regionserver.MemStoreFlusher: MemStoreFlusher.0 exiting
+2020-09-11 10:23:45,459 INFO  [RS:0;hbase-docker:16020] regionserver.HRegionServer: aborting server hbase-docker,16020,1599806083924
+2020-09-11 10:23:45,471 INFO  [RS:0;hbase-docker:16020] regionserver.CompactSplit: Waiting for Split Thread to finish...
+2020-09-11 10:23:45,471 INFO  [RS:0;hbase-docker:16020] regionserver.CompactSplit: Waiting for Large Compaction Thread to finish...
+2020-09-11 10:23:45,471 INFO  [RS:0;hbase-docker:16020] regionserver.CompactSplit: Waiting for Small Compaction Thread to finish...
+2020-09-11 10:23:45,496 INFO  [RS:0;hbase-docker:16020] regionserver.HRegionServer: Waiting on 3 regions to close
+2020-09-11 10:23:45,550 INFO  [RS_CLOSE_REGION-regionserver/hbase-docker:16020-0] regionserver.HRegion: Closed crawled_articles,,1599806867002.aa3810b146a302e180a9bc81a61cee55.
+2020-09-11 10:23:45,555 INFO  [RS_CLOSE_REGION-regionserver/hbase-docker:16020-1] regionserver.HRegion: Closed hbase:namespace,,1599806272063.e881778713f847a714ebc60e073f70a2.
+2020-09-11 10:23:45,720 INFO  [RS_CLOSE_META-regionserver/hbase-docker:16020-0] regionserver.HRegion: Closed hbase:meta,,1.1588230740
+2020-09-11 10:23:45,849 WARN  [M:0;hbase-docker:16000] regionserver.HRegionServer: Failed deleting my ephemeral node
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/rs/hbase-docker,16000,1599806062138
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.delete(ZooKeeper.java:873)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.delete(RecoverableZooKeeper.java:166)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.deleteNode(ZKUtil.java:1231)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.deleteNode(ZKUtil.java:1220)
+	at org.apache.hadoop.hbase.regionserver.HRegionServer.deleteMyEphemeralNode(HRegionServer.java:1592)
+	at org.apache.hadoop.hbase.regionserver.HRegionServer.run(HRegionServer.java:1146)
+	at org.apache.hadoop.hbase.master.HMaster.run(HMaster.java:595)
+	at org.apache.hadoop.hbase.master.HMasterCommandLine$LocalHMaster.run(HMasterCommandLine.java:313)
+	at java.lang.Thread.run(Thread.java:748)
+2020-09-11 10:23:45,852 INFO  [M:0;hbase-docker:16000] regionserver.HRegionServer: Exiting; stopping=hbase-docker,16000,1599806062138; zookeeper connection closed.
+2020-09-11 10:23:46,000 INFO  [RS:0;hbase-docker:16020] regionserver.HRegionServer: stopping server hbase-docker,16020,1599806083924; all regions closed.
+2020-09-11 10:23:46,316 INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181] server.NIOServerCnxnFactory: NIOServerCnxn factory exited run method
+2020-09-11 10:23:46,343 INFO  [M:0;hbase-docker:16000] server.ZooKeeperServer: shutting down
+2020-09-11 10:23:46,343 ERROR [M:0;hbase-docker:16000] server.ZooKeeperServer: ZKShutdownHandler is not registered, so ZooKeeper server won't take any action on ERROR or SHUTDOWN server state changes
+2020-09-11 10:23:46,343 INFO  [M:0;hbase-docker:16000] server.SessionTrackerImpl: Shutting down
+2020-09-11 10:23:46,344 INFO  [M:0;hbase-docker:16000] server.PrepRequestProcessor: Shutting down
+2020-09-11 10:23:46,368 INFO  [M:0;hbase-docker:16000] server.SyncRequestProcessor: Shutting down
+2020-09-11 10:23:46,394 INFO  [ProcessThread(sid:0 cport:2181):] server.PrepRequestProcessor: PrepRequestProcessor exited loop!
+2020-09-11 10:23:46,394 INFO  [SyncThread:0] server.SyncRequestProcessor: SyncRequestProcessor exited!
+2020-09-11 10:23:46,442 INFO  [M:0;hbase-docker:16000] server.FinalRequestProcessor: shutdown of request processor complete
+2020-09-11 10:23:46,504 INFO  [RS:0;hbase-docker:16020] regionserver.Leases: Closed leases
+2020-09-11 10:23:46,518 INFO  [RS:0;hbase-docker:16020] hbase.ChoreService: Chore service for: regionserver/hbase-docker:16020 had [[ScheduledChore: Name: CompactedHFilesCleaner Period: 120000 Unit: MILLISECONDS], [ScheduledChore: Name: CompactionThroughputTuner Period: 60000 Unit: MILLISECONDS]] on shutdown
+2020-09-11 10:23:46,545 INFO  [regionserver/hbase-docker:16020.logRoller] regionserver.LogRoller: LogRoller exiting.
+2020-09-11 10:23:46,569 INFO  [M:0;hbase-docker:16000] zookeeper.MiniZooKeeperCluster: Shutdown MiniZK cluster with all ZK servers
+2020-09-11 10:23:46,657 INFO  [RS:0;hbase-docker:16020] ipc.NettyRpcServer: Stopping server on /172.17.0.2:16020
+2020-09-11 10:23:46,796 WARN  [RS:0;hbase-docker:16020] regionserver.HRegionServer: Failed deleting my ephemeral node
+org.apache.zookeeper.KeeperException$SessionExpiredException: KeeperErrorCode = Session expired for /hbase/rs/hbase-docker,16020,1599806083924
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:127)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.delete(ZooKeeper.java:873)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.delete(RecoverableZooKeeper.java:166)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.deleteNode(ZKUtil.java:1231)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.deleteNode(ZKUtil.java:1220)
+	at org.apache.hadoop.hbase.regionserver.HRegionServer.deleteMyEphemeralNode(HRegionServer.java:1592)
+	at org.apache.hadoop.hbase.regionserver.HRegionServer.run(HRegionServer.java:1146)
+	at java.lang.Thread.run(Thread.java:748)
+2020-09-11 10:23:46,800 INFO  [RS:0;hbase-docker:16020] regionserver.HRegionServer: Exiting; stopping=hbase-docker,16020,1599806083924; zookeeper connection closed.
+2020-09-11 10:23:46,787 INFO  [regionserver/hbase-docker:16020.leaseChecker] regionserver.Leases: Closed leases
+2020-09-11 10:23:48,000 INFO  [SessionTracker] server.SessionTrackerImpl: SessionTrackerImpl exited loop!
+2020-09-11 10:23:48,031 INFO  [Thread-5] regionserver.ShutdownHook: Shutdown hook starting; hbase.shutdown.hook=true; fsShutdownHook=org.apache.hadoop.fs.FileSystem$Cache$ClientFinalizer@e36bb2a
+2020-09-11 10:23:48,038 INFO  [Thread-5] regionserver.ShutdownHook: Starting fs shutdown hook thread.
+2020-09-11 10:23:48,042 INFO  [Thread-5] regionserver.ShutdownHook: Shutdown hook finished.
