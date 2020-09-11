@@ -3,7 +3,7 @@
 __Projektteam:__  
 [Jan Brebeck](https://github.com/Brebeck-Jan) (_8016697_)  
 [Andreas Bernrieder](https://github.com/Phantomias3782) (_7876007_)  
-[Niklas Wichter](https://github.com/NWichter) (_MatrNr_)  
+[Niklas Wichter](https://github.com/NWichter) (_7428266_)  
 [Thorsten Hilbradt](https://github.com/Thorsten-H) (_5034067_)  
 [Simon Scapan](https://github.com/SimonScapan) (_6699329_) 
 
