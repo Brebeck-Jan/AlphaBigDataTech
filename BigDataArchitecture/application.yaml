@@ -1,12 +1,18 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: application
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: application
   template:
+    metadata:
+        labels:
+          app: application
     spec:
       containers:
       - name: application
         image: application:latest
         imagePullPolicy: Never
-      restartPolicy: OnFailure

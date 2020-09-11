@@ -110,9 +110,8 @@ def application(news):
 # attaching database 						                                             #
 ##########################################################################################
 
-def attach_database():
-
-	connection = happybase.Connection(host='localhost', port=9090, autoconnect=True)
+def data_from_datalake():
+	connection = happybase.Connection(host='hello', port=9090, autoconnect=True)
 	table = connection.table('crawled_articles')
 
 	news = []
@@ -130,17 +129,21 @@ def attach_database():
 def write_mongo(result):
 	#Create a MongoDB client
 	print(result)
-	client = pymongo.MongoClient('mongodb://mongo-0.mongo-service') 
-
+	# client = pymongo.MongoClient('mongodb://mongo-container:27017')
+	client = pymongo.MongoClient('mongodb://mongo-connection:27017')
+	# client = pymongo.MongoClient('mongodb://mongo-0.mongo-service')
 	#Specify the database to be used
 	db = client.news
+	#Specify the collectionlection to be used
+	collection = db.newscollection
 
-	#Specify the collection to be used
-	col = db.newscollection
-
+	dao_object = {"cat":"all","titles":[""]}
 	#Insert a single document
 	for i in range(len(result)):
-		col.insert_one({'news':result.iloc[i,0]})
+		dao_object["titles"].append(result.iloc[i,0])
 
+	collection.update_one({"cat":"all"},{"$set": dao_object},upsert=True)
 	#Close the connection
 	client.close()
+
+write_mongo(application(data_from_datalake()))

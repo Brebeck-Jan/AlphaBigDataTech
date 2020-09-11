@@ -28,7 +28,7 @@ metadata:
   name: app-service
 spec:
   selector:
-    app: app
+    app: web-app
   ports:
     - protocol: TCP
       port: 8080
