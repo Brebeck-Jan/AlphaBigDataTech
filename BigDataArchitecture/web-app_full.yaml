@@ -1,33 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: web-app-deployment
   labels:
-    app: app-deployment
+    app: web-app-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: app
+      app: web-app
   template:
     metadata:
       labels:
-        app: app
+        app: web-app
     spec:
       containers:
-        - name: app
-          image: web-app
+        - name: web-app
+          image: web-app:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
-          # resources:
-          #  requests:
-          #   cpu: 1
-          #   memory: "100M"
-          #  limits:
-          #   cpu: 1
-          #   memory: "100M"
-
+     
 ---
 kind: Service
 apiVersion: v1
@@ -62,12 +55,12 @@ spec:
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-    name: app-deployment
+    name: web-app-deployment
 spec:
     scaleTargetRef:
         apiVersion: apps/v1
         kind: Deployment
-        name: app-deployment
+        name: web-app-deployment
     minReplicas: 1
     maxReplicas: 10
     targetCPUUtilizationPercentage: 50

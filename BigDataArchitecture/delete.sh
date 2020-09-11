@@ -3,7 +3,7 @@ kubectl delete svc/mongo-service
 kubectl delete svc/memcached-service
 kubectl delete svc/headless-service
 
-kubectl delete deployment/app-deployment
+kubectl delete deployment/web-app-deployment
 kubectl delete deployment/memcache-deployment
 kubectl delete deployment/mongo-deployment
 

@@ -3,23 +3,16 @@ const os = require('os')
 const express = require('express')
 const { addAsync } = require('@awaitjs/express');
 const app = addAsync(express());
-const mysqlx = require('@mysql/xdevapi');
 const MemcachePlus = require('memcache-plus');
+const mongo = require('mongodb');
+const MongoClient = mongo.MongoClient;
 
 //Connect to the memcached instances
 let memcached = null
 let memcachedServers = []
 
-const dbConfig = "mongodb://mongo-0.mongo-service:27017/databasename"
-const client = new MongoClient(uri);
-
-/*const dbConfig = {
-	user: 'admin',
-	password: 'password',
-	host: 'database-service',
-	port: 33060,
-	schema: 'sportsdb'
-};*/
+// set db config
+const dbConfig = "mongodb://mongo-0.mongo-service:27017"
 
 async function getMemcachedServersFromDns() {
 	let queryResult = await dns.lookup('memcached-service', { all: true })
@@ -37,8 +30,8 @@ async function getMemcachedServersFromDns() {
 }
 
 //Initially try to connect to the memcached servers, then each 5s update the list
-getMemcachedServersFromDns()
-setInterval(() => getMemcachedServersFromDns(), 5000)
+//getMemcachedServersFromDns()
+//setInterval(() => getMemcachedServersFromDns(), 5000)
 
 //Get data from cache if a cache exists yet
 async function getFromCache(key) {
@@ -51,8 +44,8 @@ async function getFromCache(key) {
 
 //Get data from database
 async function getFromDatabase(userid) {
-	let query = 'SELECT birth_date from persons WHERE person_key = "' + userid + '" LIMIT 1';
 	let session = await mysqlx.getSession(dbConfig);
+	const client = new MongoClient(dbConfig);
 
 	console.log("Executing query " + query)
 	let res = await session.sql(query).execute()
@@ -76,14 +69,7 @@ function send_response(response, data) {
 			</ul>`);
 }
 
-app.get('/', function (request, response) {
-	response.writeHead(302, { 'Location': 'person/l.mlb.com-p.7491' })
-	response.end();
-})
-
-app.getAsync('/person/:id', async function (request, response) {
-	let userid = request.params["id"]
-	let key = 'user_' + userid
+app.getAsync(async function (request, response) {
 	let cachedata = await getFromCache(key)
 
 
