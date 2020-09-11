@@ -10,7 +10,8 @@ const MemcachePlus = require('memcache-plus');
 let memcached = null
 let memcachedServers = []
 
-const dbConfig = "mongodb://admin:password@database-service:33060/?retryWirtes=true&w=majority"
+const dbConfig = "mongodb://mongo-0.mongo-service:27017/databasename"
+const client = new MongoClient(uri);
 
 /*const dbConfig = {
 	user: 'admin',
