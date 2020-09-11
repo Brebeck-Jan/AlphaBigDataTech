@@ -13,8 +13,8 @@ services:
     ports:
       - "9090:9090"
   
-  python:
-    container_name: crawler
+  crawler:
+    container_name: crawler2
     build: ./crawler_pod/
     networks:
       database_project_network:
@@ -26,6 +26,17 @@ services:
       - WAIT_HOSTS_TIMEOUT=300
       - WAIT_SLEEP_INTERVAL=10
       - WAIT_HOST_CONNECT_TIMEOUT=10
+
+  spark:
+    container_name: spark-container
+    build: ./application_pod/
+    networks:
+      database_project_network:
+        ipv4_address: 172.16.238.14
+    depends_on:
+      - hbase
+      - crawler
+
 networks:
     database_project_network:
       driver: bridge

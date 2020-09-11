@@ -1,6 +1,6 @@
 import happybase
 # local setup:
-connection = happybase.Connection('localhost', 9090)
+connection = happybase.Connection('hello')
 # dockersetup
 # connection = happybase.Connection('hello', 9090)
 connection.tables()
