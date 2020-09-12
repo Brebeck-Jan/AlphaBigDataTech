@@ -18,7 +18,7 @@ __Dozent:__         [Dennis Pfisterer](https://github.com/pfisterer)
 # Idee der Anwendung
 
 Die Idee die hinter dieser Anwendung basiert auf der Funktionsweise von Google Trends.
-Dabei werden rss-Feeds von einschlägige Nachrichtenportale, wie die Farknfurter allgemien Zeitung und der Spiegel, mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data-Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die häufigkeit dieser kumuliert. Sobald dies geschehen ist, wird ein Fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. MIt einer Query werden diese dann Aufgerufen und Dargestellt. 
+Dabei werden rss-Feeds von einschlägigen Nachrichtenportale, wie die Frankfurter Allgemeine Zeitung und der Spiegel, mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die Häufigkeit dieser kumuliert. Sobald dies geschehen ist, wird ein fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. Mit einer Query werden diese dann aufgerufen und dargestellt. 
 
 ## Anwendung starten / stoppen
 - Docker Desktop muss laufen
@@ -29,6 +29,11 @@ Dabei werden rss-Feeds von einschlägige Nachrichtenportale, wie die Farknfurter
 
 # Architektur Design
 
+Bei unserer Big Data Architektur haben wir uns für eine Kappa-Architektur entschieden, da aufgrund der geringen Datenmengen ein separater Batch Layer nicht gebraucht wird.
+In unserer Kappa-Architektur nutzen wir HBase als 
+
+
+
 Welche der in der Vorlesung vorstellten konkreten Implementierungen verwendet wird und ob auf eine Lambda- oder Kappa-Architektur aufgebaut wird, ist eine zu treffende Designentscheidung.
 
 wir haben eine Kappa-Architektur … vielleicht eine kleine Begründung dazu, warum wir das machen oder einfach sagen, dass ein speedlayer einfach nicht von nöten ist :)
@@ -37,13 +42,15 @@ wir haben eine Kappa-Architektur … vielleicht eine kleine Begründung dazu, wa
 
 # Entwurf
 
-naja wie haben wir dann die einezelnen Komponenten gebaut und wie und warum die das machen was sie machen
+![Uebersicht](Uebersicht.jpg " Übersicht Big Data Architektur ") 
+In der obigen Grafik sieht man eine Übersicht über alle Komponente in unserer Big Data Architektur, welche im weiteren Verlauf erläutert werden.
+
 
 … hier dann alle Komponenten aus der BD Architektur auflisten und ein wenig dazu schreiben
 
-
 ## Data Lake
 
+Für unseren Data Lake nutzen wir Apache HBase. Im Data Lake werden die vom Webcrawler gesammelten Artikel vollständig und dauerhaft abgelegt. Der Zugriff auf den Data Lake erfolgt über das Python Modul "HappyBase". 
 
 ## Big Data Messaging
 Eine Big Data Messaging Einheit wird in unserem Fall nicht benötigt, da kein Response vom Web Server erwartet wird.
