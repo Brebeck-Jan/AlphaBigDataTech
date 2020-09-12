@@ -30,23 +30,12 @@ Dabei werden rss-Feeds von einschlägigen Nachrichtenportale, wie die Frankfurte
 # Architektur Design
 
 Bei unserer Big Data Architektur haben wir uns für eine Kappa-Architektur entschieden, da aufgrund der geringen Datenmengen ein separater Batch Layer nicht gebraucht wird.
-In unserer Kappa-Architektur nutzen wir HBase als 
-
-
-
-Welche der in der Vorlesung vorstellten konkreten Implementierungen verwendet wird und ob auf eine Lambda- oder Kappa-Architektur aufgebaut wird, ist eine zu treffende Designentscheidung.
-
-wir haben eine Kappa-Architektur … vielleicht eine kleine Begründung dazu, warum wir das machen oder einfach sagen, dass ein speedlayer einfach nicht von nöten ist :)
-
-
+In unserer Kappa-Architektur nutzen wir HBase als Data Lake. Für die Auswertung der Artikel nutzen wir Spark. Alle anderen Anwendungen wie beispielweise der Webcrawler sind in Python geschrieben.
 
 # Entwurf
 
-![Uebersicht](Uebersicht.jpg " Übersicht Big Data Architektur ") 
+![Uebersicht](Uebersicht.JPG " Übersicht Big Data Architektur ") 
 In der obigen Grafik sieht man eine Übersicht über alle Komponente in unserer Big Data Architektur, welche im weiteren Verlauf erläutert werden.
-
-
-… hier dann alle Komponenten aus der BD Architektur auflisten und ein wenig dazu schreiben
 
 ## Data Lake
 
@@ -56,7 +45,7 @@ Für unseren Data Lake nutzen wir Apache HBase. Im Data Lake werden die vom Webc
 Eine Big Data Messaging Einheit wird in unserem Fall nicht benötigt, da kein Response vom Web Server erwartet wird.
 
 ## Big Data Processing
-Daten werden aus dem Data Lake geholt, diese werden dann in ein Resilient Distributed Dataset unter Spark geschrieben und durchlaufen ein Preprocessing. Dieses Preprocessing beinhaltet: Transformation zu kleingeschriebenen Buchstaben, Sätze in eine Listen von Wörtern teilen und das entfernen von Leerzeichen.
+Daten werden aus dem Data Lake geholt, diese werden dann in ein Resilient Distributed Dataset unter Spark geschrieben und durchlaufen ein Preprocessing. Dieses Preprocessing beinhaltet: Transformation zu kleingeschriebenen Buchstaben, Sätze in eine Listen von Wörtern teilen und das Entfernen von Leerzeichen.
 
 Danach wird ausgezählt wie oft jedes Wort vorkommt und die Reihenfolge wird später berücksichtigt.
 Stopwords werden entfernt und das Resultat, der 5 am häufigsten vorkommenden Wörter wird dem Database Server übergeben.
