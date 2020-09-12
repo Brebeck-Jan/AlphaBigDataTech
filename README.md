@@ -37,8 +37,10 @@ In unserer Kappa-Architektur nutzen wir HBase als Data Lake. Für die Auswertung
 ![Uebersicht](Uebersicht.JPG " Übersicht Big Data Architektur ") 
 In der obigen Grafik sieht man eine Übersicht über alle Komponente in unserer Big Data Architektur, welche im weiteren Verlauf erläutert werden.
 
-## Data Lake
+## Web Crawler
+Der Webcrawler zieht aus einer txt Datei die URLs zu RSS Feeds verschiedener Zeitungseiten, verarbeitet diese vor und legt diese in den Data Lake ab.
 
+## Data Lake
 Für unseren Data Lake nutzen wir Apache HBase. Im Data Lake werden die vom Webcrawler gesammelten Artikel vollständig und dauerhaft abgelegt. Der Zugriff auf den Data Lake erfolgt über das Python Modul "HappyBase". 
 
 ## Big Data Processing
@@ -49,9 +51,6 @@ Stopwords werden entfernt und das Resultat, der 5 am häufigsten vorkommenden W�
 
 ## Big Data Messaging
 Eine Big Data Messaging Einheit wird in unserem Fall nicht benötigt, da kein Response vom Web Server erwartet wird.
-
-## WebCrawler
-Der Webcrawler zieht aus einer txt Datei die URLs zu RSS Feeds verschiedener Zeitungseiten, verarbeitet diese vor und legt diese in den Data Lake ab.
 
 ## Database Server
 Datenbank:
@@ -87,4 +86,4 @@ Um die IP / Port zu bekommen:
 
 
 # Screencast
-[![Screencast BigTrends](screencast.gif)](google.com)
+[![Screencast BigTrends](screencast.gif)](screencast.mp4)
