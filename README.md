@@ -18,7 +18,7 @@ __Dozent:__         [Dennis Pfisterer](https://github.com/pfisterer)
 # Idee der Anwendung
 
 Die Idee hinter dieser Anwendung basiert auf der Funktionsweise von Google Trends.
-Dabei werden rss-Feeds von einschlägigen Nachrichtenportalen, wie der Frankfurter Allgemeine Zeitung und dem Spiegel, mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die Häufigkeit dieser kumuliert. Sobald dies geschehen ist, wird ein fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. Mit einer Query werden diese dann aufgerufen und dargestellt. 
+Dabei werden rss-Feeds von einschlägigen Nachrichtenportalen, wie der Frankfurter Allgemeinen Zeitung und dem Spiegel, mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die Häufigkeit dieser kumuliert. Sobald dies geschehen ist, wird ein fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. Mit einer Query werden diese dann aufgerufen und dargestellt. 
 
 ## Anwendung starten / stoppen
 - Docker Desktop muss laufen
