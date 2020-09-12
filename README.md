@@ -35,6 +35,7 @@ In unserer Kappa-Architektur nutzen wir HBase als Data Lake. Für die Auswertung
 # Entwurf
 
 ![Uebersicht](Uebersicht.JPG " Übersicht Big Data Architektur ") 
+
 In der obigen Grafik sieht man eine Übersicht über alle Komponente in unserer Big Data Architektur, welche im weiteren Verlauf erläutert werden.
 
 ## Web Crawler
