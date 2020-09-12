@@ -17,8 +17,8 @@ __Dozent:__         [Dennis Pfisterer](https://github.com/pfisterer)
 
 # Idee der Anwendung
 
-Die Idee die hinter dieser Anwendung basiert auf der Funktionsweise von Google Trends.
-Dabei werden rss-Feeds von einschlägigen Nachrichtenportale, wie die Frankfurter Allgemeine Zeitung und der Spiegel, mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die Häufigkeit dieser kumuliert. Sobald dies geschehen ist, wird ein fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. Mit einer Query werden diese dann aufgerufen und dargestellt. 
+Die Idee hinter dieser Anwendung basiert auf der Funktionsweise von Google Trends.
+Dabei werden rss-Feeds von einschlägigen Nachrichtenportalen, wie der Frankfurter Allgemeine Zeitung und dem Spiegel, mit einem Webcrawler gercrawlt, um von dort die neusten Artikel zu extrahieren. Die extrahierten Artikel werden in ein Data Lake geschrieben. Von dort werden die Titel extrahiert und auf ihre Schlagworte wie z.B. “Corona”, “Trump” oder “Olympia” untersucht und die Häufigkeit dieser kumuliert. Sobald dies geschehen ist, wird ein fertiges Dataframe mit den 5 häufigsten Schlagwörtern in eine MongoDB geschrieben. Mit einer Query werden diese dann aufgerufen und dargestellt. 
 
 ## Anwendung starten / stoppen
 - Docker Desktop muss laufen
@@ -36,10 +36,10 @@ In unserer Kappa-Architektur nutzen wir HBase als Data Lake. Für die Auswertung
 
 ![Uebersicht](Uebersicht.JPG " Übersicht Big Data Architektur ") 
 
-In der obigen Grafik sieht man eine Übersicht über alle Komponente in unserer Big Data Architektur, welche im weiteren Verlauf erläutert werden.
+In der obigen Grafik sieht man eine Übersicht über alle Komponenten in unserer Big Data Architektur, welche im weiteren Verlauf erläutert werden.
 
 ## Web Crawler
-Der Webcrawler zieht aus einer txt Datei die URLs zu RSS Feeds verschiedener Zeitungseiten, verarbeitet diese vor und legt diese in den Data Lake ab.
+Der Webcrawler zieht aus einer txt Datei die URLs zu RSS Feeds verschiedener Zeitungseiten, crawlt alle Nachrichten von diesen Seiten und legt sie in den Data Lake ab.
 
 ## Data Lake
 Für unseren Data Lake nutzen wir Apache HBase. Im Data Lake werden die vom Webcrawler gesammelten Artikel vollständig und dauerhaft abgelegt. Der Zugriff auf den Data Lake erfolgt über das Python Modul "HappyBase". 
@@ -77,7 +77,7 @@ Falls die CPU Auslastung eines Pods über 50 Prozent steigt wird ein weiterer Po
 Loadbalancer:
 Im zum Webserver zugehörigen Service ist ein Loadblancer integriert (Type: Loadbalancer), der eingehende Anfragen auf verschiedene Webserver verteilt (wenn vorhanden und falls nötig)
 
-externer Zugriff:
+## externer Zugriff:
 Erfolgt über Ingress (Gibt einen Pfad von außerhalb des Clusters hin zu Services in dem Cluster)
 Um die IP / Port zu bekommen:
 -	Kubectl get ingress -o wide (Kann eine Weile dauern bis Adresse sichtbar)
