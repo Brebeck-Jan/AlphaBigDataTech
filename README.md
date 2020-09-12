@@ -41,14 +41,17 @@ In der obigen Grafik sieht man eine Übersicht über alle Komponente in unserer 
 
 Für unseren Data Lake nutzen wir Apache HBase. Im Data Lake werden die vom Webcrawler gesammelten Artikel vollständig und dauerhaft abgelegt. Der Zugriff auf den Data Lake erfolgt über das Python Modul "HappyBase". 
 
-## Big Data Messaging
-Eine Big Data Messaging Einheit wird in unserem Fall nicht benötigt, da kein Response vom Web Server erwartet wird.
-
 ## Big Data Processing
 Daten werden aus dem Data Lake geholt, diese werden dann in ein Resilient Distributed Dataset unter Spark geschrieben und durchlaufen ein Preprocessing. Dieses Preprocessing beinhaltet: Transformation zu kleingeschriebenen Buchstaben, Sätze in eine Listen von Wörtern teilen und das Entfernen von Leerzeichen.
 
 Danach wird ausgezählt wie oft jedes Wort vorkommt und die Reihenfolge wird später berücksichtigt.
 Stopwords werden entfernt und das Resultat, der 5 am häufigsten vorkommenden Wörter wird dem Database Server übergeben.
+
+## Big Data Messaging
+Eine Big Data Messaging Einheit wird in unserem Fall nicht benötigt, da kein Response vom Web Server erwartet wird.
+
+## WebCrawler
+Der Webcrawler zieht aus einer txt Datei die URLs zu RSS Feeds verschiedener Zeitungseiten, verarbeitet diese vor und legt diese in den Data Lake ab.
 
 ## Database Server
 Datenbank:
