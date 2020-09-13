@@ -1,16 +1,22 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: crawler
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crawler
   template:
+    metadata: 
+      labels:
+        app: crawler
     spec:
       containers:
       - name: crawler
         image: crawler:latest
         imagePullPolicy: Never
-      restartPolicy: OnFailure
       initContainers:
       - name: init-myservice
         image: busybox:1.28
-        command: ['sh', '-c', "until nslookup hello.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
+        command: ['sh', '-c', "until nslookup lake-connection.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for lake-connection; sleep 2; done"]

@@ -1,3 +1,4 @@
+# Only for testing
 version: '3.3'
 
 volumes:
@@ -37,7 +38,6 @@ services:
       - hbase
       - crawler
     
-  
   mongo:
     container_name: mongo-container
     image: mongo

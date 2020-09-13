@@ -96,7 +96,7 @@ def application(news):
 ##########################################################################################
 
 def data_from_datalake():
-	connection = happybase.Connection(host='hello', port=9090, autoconnect=True)
+	connection = happybase.Connection(host='lake-connection', port=9090, autoconnect=True)
 	table = connection.table('crawled_articles')
 	news = []
 	for k, data in table.scan():
